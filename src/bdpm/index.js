@@ -1,0 +1,144 @@
+/**
+ * Base de données publique des médicaments (ANSM, HAS, UNCAM), publiée en
+ * Licence Ouverte. Fichiers texte tabulés, sans en-tête, en ISO-8859-1, dates
+ * à la française : on les réécrit avec un en-tête, en UTF-8, dates ISO et
+ * nombres normalisés.
+ *
+ * Description officielle des colonnes : document « Contenu et format des
+ * fichiers téléchargeables dans la BDM » sur le site de la base.
+ */
+
+import { join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+
+import { telecharger } from '../commun/telecharger.js';
+import { EcrivainCsv } from '../commun/csv.js';
+import { dateIso, nombreFr, texte } from '../commun/dates.js';
+
+export const BASE = 'https://base-donnees-publique.medicaments.gouv.fr';
+export const PAGE = `${BASE}/telechargement`;
+
+/**
+ * Fichiers et colonnes. `types` indique les colonnes à convertir :
+ * d = date, n = nombre ; les autres restent du texte.
+ */
+export const FICHIERS = {
+  specialites: {
+    fichier: 'CIS_bdpm.txt',
+    colonnes: ['cis', 'denomination', 'forme_pharmaceutique', 'voies_administration', 'statut_amm', 'type_procedure_amm',
+      'etat_commercialisation', 'date_amm', 'statut_bdm', 'numero_autorisation_europeenne', 'titulaires', 'surveillance_renforcee'],
+    types: { date_amm: 'd' },
+  },
+  presentations: {
+    fichier: 'CIS_CIP_bdpm.txt',
+    colonnes: ['cis', 'cip7', 'libelle_presentation', 'statut_administratif', 'etat_commercialisation', 'date_declaration_commercialisation',
+      'cip13', 'agrement_collectivites', 'taux_remboursement', 'prix_medicament', 'prix_public', 'honoraires_dispensation', 'indications_remboursement'],
+    types: { date_declaration_commercialisation: 'd', prix_medicament: 'n', prix_public: 'n', honoraires_dispensation: 'n' },
+  },
+  compositions: {
+    fichier: 'CIS_COMPO_bdpm.txt',
+    colonnes: ['cis', 'designation_element', 'code_substance', 'denomination_substance', 'dosage', 'reference_dosage', 'nature_composant', 'numero_liaison'],
+    types: {},
+  },
+  avisSmr: {
+    fichier: 'CIS_HAS_SMR_bdpm.txt',
+    colonnes: ['cis', 'code_dossier_has', 'motif_evaluation', 'date_avis', 'valeur_smr', 'libelle_smr'],
+    types: { date_avis: 'd' },
+  },
+  avisAsmr: {
+    fichier: 'CIS_HAS_ASMR_bdpm.txt',
+    colonnes: ['cis', 'code_dossier_has', 'motif_evaluation', 'date_avis', 'valeur_asmr', 'libelle_asmr'],
+    types: { date_avis: 'd' },
+  },
+  liensAvisCt: {
+    fichier: 'HAS_LiensPageCT_bdpm.txt',
+    colonnes: ['code_dossier_has', 'lien_avis_ct'],
+    types: {},
+  },
+  generiques: {
+    fichier: 'CIS_GENER_bdpm.txt',
+    colonnes: ['identifiant_groupe', 'libelle_groupe', 'cis', 'type_generique', 'numero_tri'],
+    types: { type_generique: 'n', numero_tri: 'n' },
+  },
+  conditionsPrescription: {
+    fichier: 'CIS_CPD_bdpm.txt',
+    colonnes: ['cis', 'condition_prescription_delivrance'],
+    types: {},
+  },
+  informationsImportantes: {
+    fichier: 'CIS_InfoImportantes.txt',
+    url: `${BASE}/download/CIS_InfoImportantes.txt`,
+    colonnes: ['cis', 'date_debut', 'date_fin', 'texte_et_lien'],
+    types: { date_debut: 'd', date_fin: 'd' },
+  },
+  disponibilite: {
+    fichier: 'CIS_CIP_Dispo_Spec.txt',
+    colonnes: ['cis', 'cip13', 'code_statut', 'libelle_statut', 'date_debut', 'date_maj', 'lien_ansm'],
+    types: { date_debut: 'd', date_maj: 'd' },
+  },
+};
+
+/**
+ * Les fichiers de la base ne sont pas tous dans le même encodage : certains
+ * sont en ISO-8859-1, d'autres en UTF-8. On tente l'UTF-8 strict, sinon latin1.
+ */
+export function decoderTexte(tampon) {
+  try {
+    return new TextDecoder('utf-8', { fatal: true }).decode(tampon);
+  } catch {
+    return tampon.toString('latin1');
+  }
+}
+
+export const TYPES_GENERIQUE = { 0: 'princeps', 1: 'générique', 2: 'générique par complémentarité posologique', 4: 'générique substituable' };
+
+/**
+ * Convertit le contenu texte d'un fichier BDPM en objets.
+ * Une ligne qui a plus de colonnes que prévu garde ses colonnes supplémentaires
+ * dans `colonne_N`, une ligne qui en a moins est complétée par des vides.
+ */
+export function convertirTexte(contenu, definition) {
+  const lignes = contenu.split(/\r?\n/).filter((l) => l.trim() !== '');
+  return lignes.map((l) => {
+    const valeurs = l.split('\t');
+    const objet = {};
+    definition.colonnes.forEach((c, i) => {
+      const brut = texte(valeurs[i]);
+      const type = definition.types[c];
+      objet[c] = type === 'd' ? dateIso(brut) : type === 'n' ? nombreFr(brut) : brut;
+    });
+    for (let i = definition.colonnes.length; i < valeurs.length; i++) {
+      if (texte(valeurs[i]) !== null) objet[`colonne_${i + 1}`] = texte(valeurs[i]);
+    }
+    return objet;
+  });
+}
+
+/**
+ * Télécharge tous les fichiers (ou ceux demandés) et écrit un CSV par fichier
+ * plus un résumé. Renvoie le résumé.
+ */
+export async function exporterBdpm({ fichiers, sortie = 'data/bdpm', cache = '.cache', forcer = false, journal = () => {} }) {
+  const cles = fichiers?.length ? fichiers : Object.keys(FICHIERS);
+  mkdirSync(sortie, { recursive: true });
+  const resume = { source: PAGE, licence: 'Licence Ouverte (ANSM, HAS, UNCAM)', converti: new Date().toISOString(), fichiers: {} };
+
+  for (const cle of cles) {
+    const definition = FICHIERS[cle];
+    if (!definition) throw new Error(`fichier BDPM inconnu : ${cle} (choix : ${Object.keys(FICHIERS).join(', ')})`);
+    const url = definition.url ?? `${BASE}/download/file/${definition.fichier}`;
+    const chemin = join(cache, 'bdpm', definition.fichier);
+    await telecharger(url, chemin, { forcer, journal });
+    const lignes = convertirTexte(decoderTexte(readFileSync(chemin)), definition);
+    const nomCsv = `bdpm-${cle.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}.csv`;
+    const colonnes = [...definition.colonnes];
+    for (const l of lignes) for (const k of Object.keys(l)) if (!colonnes.includes(k)) colonnes.push(k);
+    const csv = new EcrivainCsv(join(sortie, nomCsv), colonnes);
+    for (const l of lignes) await csv.ecrire(l);
+    await csv.fermer();
+    resume.fichiers[cle] = { source: definition.fichier, fichier: nomCsv, lignes: lignes.length };
+    journal(`${cle} : ${lignes.length} lignes`);
+  }
+  writeFileSync(join(sortie, 'bdpm-resume.json'), JSON.stringify(resume, null, 2) + '\n');
+  return resume;
+}

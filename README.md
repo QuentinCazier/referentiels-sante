@@ -17,7 +17,12 @@ entrepôt de données ou un script.
 | **FINESS+** structures | ANS, data.gouv.fr (flux quotidien, Licence Ouverte 2.0) | entités juridiques, établissements, groupements (GHT, GCS) avec libellés, coordonnées, agrégats |
 | **FINESS+** activités | ANS, data.gouv.fr | activités autorisées et exercées, statut, capacités autorisées et installées |
 | **NOS** | ANS, nomenclatures des objets de santé | toute table de référence (catégorie d'établissement, statut juridique, département…) en CSV et JSON |
+| **CCAM** | Assurance Maladie, base dBase en page de code DOS | actes avec libellés recollés et chapitres numérotés, activités, phases, prix par grille tarifaire, modificateurs, notes |
+| **CIM-10 FR à usage PMSI** | ATIH, fichiers ClaML annuels | codes avec hiérarchie (chapitre, bloc, catégorie), inclusions, exclusions, notes, variantes françaises |
+| **Médicaments** | Base de données publique des médicaments (Licence Ouverte) | spécialités, présentations CIP, compositions, avis SMR et ASMR, génériques, conditions de prescription, disponibilité |
+| **NABM, LPP, UCD** | Assurance Maladie, tables dBase | biologie, dispositifs et prestations, unités communes de dispensation, en CSV UTF-8 |
 | **Tarifs GHS, GHT, suppléments** | ATIH, arrêtés tarifaires MCO et HAD | tarifs des deux secteurs, nombres et dates normalisés |
+| **N'importe quel DBF** | | conversion d'une table dBase locale ou d'une archive en CSV |
 
 Le flux FINESS+ a remplacé l'ancienne extraction FINESS le 20 juillet 2026.
 Pour ne pas casser les chaînes de traitement existantes, l'outil produit
@@ -52,9 +57,17 @@ Avec `--activites`, l'outil traite aussi le flux activités (autorisations,
 ```bash
 npx referentiels-sante finess --activites
 npx referentiels-sante nos TRE_R66-CategorieEtablissement TRE_R72-FinessStatutJuridique
+npx referentiels-sante ccam                    # data/ccam : actes, activités, phases, tarifs, chapitres, notes
+npx referentiels-sante cim10 --edition 2025    # data/cim10 : 11 969 codes avec hiérarchie et rubriques
+npx referentiels-sante bdpm                    # data/bdpm : dix fichiers de la base des médicaments
+npx referentiels-sante nabm                    # idem lpp, ucd
 npx referentiels-sante ghs --annee 2026
+npx referentiels-sante dbf fichier.dbf
 npx referentiels-sante --aide
 ```
+
+Détail des colonnes : [docs/FINESS.md](docs/FINESS.md), [docs/CCAM.md](docs/CCAM.md),
+[docs/AUTRES-REFERENTIELS.md](docs/AUTRES-REFERENTIELS.md) (CIM-10, médicaments, NABM, LPP, UCD).
 
 Les téléchargements sont mis en cache dans `.cache/` ; `--forcer` les renouvelle.
 `--sans-libelles` évite tout appel aux tables NOS (codes seuls, hors ligne).
@@ -91,6 +104,8 @@ Ordres de grandeur sur le flux du 11 septembre 2026, sur un portable :
 |---|---|---|---|
 | structures (50 Mo compressés, 750 Mo décompressés) | 98 218 entités juridiques, 174 707 établissements, 135 GHT, 1 858 groupements de coopération | 22 s | moins de 100 Mo |
 | activités (58 Mo compressés) | 294 753 activités autorisées, 294 774 activités exercées | 28 s | moins de 100 Mo |
+| CCAM V84 (27 Mo compressés, 700 Mo de tables dBase) | 8 558 actes, 13 741 activités, 967 106 prix par grille, 44 925 notes | 27 s | quelques centaines de Mo |
+| CIM-10 FR 2025 (ClaML) | 11 969 codes | moins d'une seconde | |
 
 ## Ce que l'outil ne fait pas
 
@@ -100,8 +115,9 @@ Ordres de grandeur sur le flux du 11 septembre 2026, sur un portable :
 - Il ne réinterprète pas les données : chaque colonne est tracée jusqu'au champ
   d'origine dans [docs/FINESS.md](docs/FINESS.md). Les seules règles de calcul
   (statut et capacités des activités) sont celles publiées par l'ANS.
-- Il ne couvre pas encore la CCAM, la CIM-10, le RPPS ni la BDPM. Ce sont des
-  candidats naturels ; voir [CONTRIBUTING.md](CONTRIBUTING.md).
+- Il ne couvre pas la NGAP, que l'Assurance Maladie ne publie qu'en PDF, ni
+  le RPPS. Voir [docs/SOURCES.md](docs/SOURCES.md) et
+  [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Architecture
 
@@ -111,7 +127,9 @@ src/
   commun/json-flux.js   lecteur JSON en flux (tableaux de premier niveau)
   commun/csv.js         écriture CSV et JSON Lines en flux, lecture CSV
   commun/telecharger.js téléchargement avec cache
-  commun/zip.js         lecteur ZIP minimal
+  commun/zip.js         lecteur et extracteur ZIP en flux
+  commun/dbf.js         lecteur dBase en flux, page de code DOS
+  commun/xml.js         analyseur XML minimal (ClaML, SVS)
   commun/dates.js       normalisation des dates et nombres
   finess/sources.js     localisation des flux sur data.gouv.fr
   finess/libelles.js    jointure avec les tables NOS
@@ -119,6 +137,10 @@ src/
   finess/activites.js   activités, statut et capacités (règles ANS)
   finess/convertir.js   orchestration en flux
   nos/index.js          tables NOS (.tabs) vers concepts normalisés
+  ccam/index.js         base dBase CCAM vers synthèse et tables
+  cim10/index.js        ClaML vers codes hiérarchisés
+  bdpm/index.js         fichiers tabulés de la base des médicaments
+  cnam/index.js         NABM, LPP, UCD depuis les pages de codage de l'Assurance Maladie
   ghs/index.js          archives tarifaires ATIH
 tests/                  node:test, fixtures publiées par l'ANS
 ```

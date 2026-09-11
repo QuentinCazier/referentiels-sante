@@ -1,0 +1,95 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+import { convertirClaml, exporterCim10 } from '../src/cim10/index.js';
+import { convertirTexte, exporterBdpm, FICHIERS } from '../src/bdpm/index.js';
+import { lireCsv } from '../src/commun/csv.js';
+import { dossierTemp } from './_util.js';
+
+const CLAML = `<?xml version="1.0" encoding="UTF-8"?>
+<ClaML version="2.0.0">
+  <Meta name="copyright" value="Copyright OMS, ATIH (exemple)"/>
+  <Identifier authority="ATIH" uid="2025"/>
+  <Title date="2025-01-01" name="CIM10" version="CIM-10 FR 2025 (exemple)">Classification Internationale des Maladies</Title>
+  <Class code="IX" kind="chapter">
+    <SubClass code="I20-I25"/>
+    <Rubric kind="preferred"><Label>Maladies de l'appareil circulatoire</Label></Rubric>
+  </Class>
+  <Class code="I20-I25" kind="block">
+    <SuperClass code="IX"/>
+    <SubClass code="I21"/>
+    <Rubric kind="preferred"><Label>Cardiopathies ischémiques</Label></Rubric>
+  </Class>
+  <Class code="I21" kind="category">
+    <SuperClass code="I20-I25"/>
+    <SubClass code="I21.0"/>
+    <Rubric kind="preferred"><Label>Infarctus aigu du myocarde</Label></Rubric>
+    <Rubric kind="inclusion"><Label>infarctus précisé comme aigu</Label></Rubric>
+    <Rubric kind="exclusion"><Label>certaines complications <Reference code="I23">I23.-</Reference></Label></Rubric>
+  </Class>
+  <Class code="I21.0" kind="category" usage="dagger">
+    <SuperClass code="I21"/>
+    <Rubric kind="preferred"><Label variants="FM">Infarctus transmural aigu du myocarde, de la paroi antérieure</Label></Rubric>
+  </Class>
+</ClaML>`;
+
+test('convertirClaml produit les codes avec hiérarchie et rubriques', () => {
+  const { meta, codes } = convertirClaml(CLAML);
+  assert.equal(meta.edition, '2025');
+  assert.equal(meta.version, 'CIM-10 FR 2025 (exemple)');
+  assert.equal(codes.length, 4);
+  const i210 = codes.find((c) => c.code === 'I21.0');
+  assert.equal(i210.niveau, 'categorie');
+  assert.equal(i210.libelle, 'Infarctus transmural aigu du myocarde, de la paroi antérieure');
+  assert.equal(i210.parent, 'I21');
+  assert.equal(i210.bloc, 'I20-I25');
+  assert.equal(i210.chapitre, 'IX');
+  assert.equal(i210.profondeur, 3);
+  assert.equal(i210.usage, 'dagger');
+  assert.equal(i210.variantes, 'FM');
+  const i21 = codes.find((c) => c.code === 'I21');
+  assert.equal(i21.inclusions, 'infarctus précisé comme aigu');
+  assert.equal(i21.exclusions, 'certaines complications I23.-');
+  assert.equal(i21.nb_sous_classes, 1);
+  const chapitre = codes.find((c) => c.code === 'IX');
+  assert.equal(chapitre.niveau, 'chapitre');
+  assert.equal(chapitre.chapitre, 'IX');
+  assert.equal(chapitre.profondeur, 0);
+});
+
+test('exporterCim10 écrit CSV, JSON et résumé depuis un fichier local', async () => {
+  const dossier = dossierTemp();
+  const source = join(dossier, 'exemple.xml');
+  writeFileSync(source, CLAML);
+  const sortie = join(dossier, 'sortie');
+  const resume = await exporterCim10({ source, sortie });
+  assert.equal(resume.codes, 4);
+  assert.deepEqual(resume.parNiveau, { chapitre: 1, bloc: 1, categorie: 2 });
+  assert.ok(existsSync(join(sortie, 'cim10-codes.csv')));
+  const lignes = lireCsv(readFileSync(join(sortie, 'cim10-codes.csv'), 'utf8'));
+  assert.equal(lignes.find((l) => l.code === 'I21.0').chapitre, 'IX');
+  const json = JSON.parse(readFileSync(join(sortie, 'cim10-codes.json'), 'utf8'));
+  assert.equal(json.length, 4);
+});
+
+test('convertirTexte lit les fichiers tabulés de la BDPM avec dates et prix normalisés', () => {
+  const contenu = '61266250\tA 313 200 000 UI POUR CENT, pommade\tpommade\tcutanée\tAutorisation active\tProcédure nationale\tCommercialisée\t12/03/1998\t\t\t PHARMA DEVELOPPEMENT\tNon\r\n';
+  const [s] = convertirTexte(contenu, FICHIERS.specialites);
+  assert.equal(s.cis, '61266250');
+  assert.equal(s.date_amm, '1998-03-12');
+  assert.equal(s.statut_bdm, null);
+  assert.equal(s.titulaires, 'PHARMA DEVELOPPEMENT');
+  const presentation = '61266250\t3400930\tboîte de 1 tube\tPrésentation active\tDéclaration de commercialisation\t01/02/2020\t3400930000000\toui\t65 %\t2,58\t3,60\t1,02\t\tsupplément\n';
+  const [p] = convertirTexte(presentation, FICHIERS.presentations);
+  assert.equal(p.cip13, '3400930000000');
+  assert.equal(p.prix_medicament, 2.58);
+  assert.equal(p.prix_public, 3.6);
+  assert.equal(p.date_declaration_commercialisation, '2020-02-01');
+  assert.equal(p.colonne_14, 'supplément', 'les colonnes excédentaires sont conservées');
+});
+
+test('exporterBdpm refuse un nom de fichier inconnu', async () => {
+  await assert.rejects(() => exporterBdpm({ fichiers: ['inexistant'], sortie: dossierTemp() }), /fichier BDPM inconnu/);
+});

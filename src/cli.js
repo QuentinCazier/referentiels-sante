@@ -11,6 +11,11 @@ import { chargerLibelles, libellesVides } from './finess/libelles.js';
 import { convertirStructures, convertirActivites } from './finess/convertir.js';
 import { exporterTables, TABLES } from './nos/index.js';
 import { exporterTarifs, ARCHIVES } from './ghs/index.js';
+import { exporterCcam, convertirTableDbf } from './ccam/index.js';
+import { exporterCim10, EDITIONS } from './cim10/index.js';
+import { exporterBdpm } from './bdpm/index.js';
+import { exporterTableCnam, SOURCES } from './cnam/index.js';
+import { extraireZip } from './commun/zip.js';
 
 const AIDE = `referentiels-sante : référentiels publics de la santé en CSV et JSON propres
 
@@ -19,6 +24,11 @@ Usage
                                [--mensuel] [--sans-libelles] [--sans-jsonl] [--sans-historique]
   referentiels-sante nos       [TABLE ...]     (défaut : les tables utilisées pour FINESS)
   referentiels-sante ghs       [--annee 2026 | --source <zip ou URL>]
+  referentiels-sante ccam      [--brut] [--dossier-dbf <dossier>]
+  referentiels-sante cim10     [--edition 2025 | --source <zip ou xml>]
+  referentiels-sante bdpm      [FICHIER ...]   (défaut : tous : specialites, presentations, compositions…)
+  referentiels-sante nabm | lpp | ucd          tables de codage de l'Assurance Maladie
+  referentiels-sante dbf       <fichier.dbf | archive.zip> [--encodage cp850|latin1|utf8]
 
 Options communes
   --sortie <dossier>   dossier de sortie (défaut : data/<commande>)
@@ -31,6 +41,10 @@ Exemples
   referentiels-sante finess --activites         idem plus le flux activités (autorisations, capacités)
   referentiels-sante nos TRE_R66-CategorieEtablissement
   referentiels-sante ghs --annee 2026
+  referentiels-sante ccam                       actes, activités, phases, tarifs par grille, chapitres, notes
+  referentiels-sante cim10 --edition 2025       codes CIM-10 FR à usage PMSI avec hiérarchie et rubriques
+  referentiels-sante bdpm specialites presentations
+  referentiels-sante dbf LPP_fiche_tot901.dbf   n'importe quelle table DBF vers CSV
 `;
 
 const options = {
@@ -47,6 +61,10 @@ const options = {
   'sans-historique': { type: 'boolean', default: false },
   annee: { type: 'string' },
   source: { type: 'string' },
+  edition: { type: 'string' },
+  brut: { type: 'boolean', default: false },
+  'dossier-dbf': { type: 'string' },
+  encodage: { type: 'string', default: 'cp850' },
   aide: { type: 'boolean', short: 'h', default: false },
 };
 
@@ -91,11 +109,50 @@ async function principal(argv) {
     return 0;
   }
 
+  if (commande === 'ccam') {
+    const resume = await exporterCcam({ ...commun, sortie: values.sortie ?? 'data/ccam', brut: values.brut, dossierDbf: values['dossier-dbf'] });
+    journal(`CCAM ${resume.version ?? ''} : ${resume.actes} actes, ${resume.activites} activités, ${resume.phases} phases, ${resume.tarifsGrilles} prix par grille, ${resume.notes} notes en ${resume.dureeSecondes} s`);
+    return 0;
+  }
+
+  if (commande === 'cim10') {
+    const edition = values.edition ? Number(values.edition) : (values.source ? undefined : Math.max(...Object.keys(EDITIONS).map(Number)));
+    const resume = await exporterCim10({ ...commun, edition, source: values.source, sortie: values.sortie ?? 'data/cim10' });
+    journal(`${resume.version ?? 'CIM-10'} : ${resume.codes} codes (${Object.entries(resume.parNiveau).map(([k, v]) => `${v} ${k}`).join(', ')})`);
+    return 0;
+  }
+
+  if (commande === 'bdpm') {
+    const resume = await exporterBdpm({ ...commun, fichiers: reste, sortie: values.sortie ?? 'data/bdpm' });
+    journal(`${Object.keys(resume.fichiers).length} fichiers convertis dans ${values.sortie ?? 'data/bdpm'}`);
+    return 0;
+  }
+
+  if (commande in SOURCES) {
+    const resume = await exporterTableCnam(commande, { ...commun, sortie: values.sortie, encodage: values.encodage });
+    journal(`${resume.libelle} version ${resume.version} : ${resume.tables.length} table(s), ${resume.tables.reduce((n, t) => n + t.lignes, 0)} lignes`);
+    return 0;
+  }
+
+  if (commande === 'dbf') {
+    if (!reste.length) { process.stderr.write('indiquez un fichier .dbf ou une archive .zip\n'); return 2; }
+    const sortie = values.sortie ?? 'data/dbf';
+    for (const fichier of reste) {
+      const dbfs = /\.zip$/i.test(fichier)
+        ? await extraireZip(fichier, `${values.cache}/dbf`, { filtre: (n) => /\.dbf$/i.test(n) })
+        : [fichier];
+      for (const d of dbfs) await convertirTableDbf(d, sortie, { encodage: values.encodage, journal });
+    }
+    return 0;
+  }
+
   process.stderr.write(`commande inconnue : ${commande}\n\n${AIDE}`);
   return 2;
 }
 
+// On fixe le code de sortie sans forcer l'arrêt : un arrêt brutal pendant qu'un
+// téléchargement se ferme provoque une assertion de libuv sous Windows.
 principal(process.argv.slice(2)).then(
-  (code) => process.exit(code),
-  (erreur) => { process.stderr.write(`erreur : ${erreur.message}\n`); process.exit(1); },
+  (code) => { process.exitCode = code; },
+  (erreur) => { process.stderr.write(`erreur : ${erreur.message}\n`); process.exitCode = 1; },
 );

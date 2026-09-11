@@ -1,7 +1,7 @@
 {
   "name": "referentiels-sante",
   "version": "0.1.0",
-  "description": "Référentiels publics de la santé en France (FINESS+, nomenclatures NOS, tarifs GHS) convertis en CSV et JSON propres, sans dépendance",
+  "description": "Référentiels publics de la santé en France (FINESS+, NOS, CCAM, CIM-10, médicaments, NABM, LPP, UCD, tarifs GHS) convertis en CSV et JSON propres, sans dépendance",
   "keywords": [
     "finess",
     "finess+",
@@ -9,6 +9,13 @@
     "ans",
     "atih",
     "ghs",
+    "ccam",
+    "cim-10",
+    "bdpm",
+    "nabm",
+    "lpp",
+    "ucd",
+    "dbf",
     "sante",
     "hopital",
     "open-data",
@@ -30,7 +37,13 @@
     "./finess": "./src/finess/index.js",
     "./nos": "./src/nos/index.js",
     "./ghs": "./src/ghs/index.js",
-    "./commun/json-flux": "./src/commun/json-flux.js"
+    "./ccam": "./src/ccam/index.js",
+    "./cim10": "./src/cim10/index.js",
+    "./bdpm": "./src/bdpm/index.js",
+    "./cnam": "./src/cnam/index.js",
+    "./commun/json-flux": "./src/commun/json-flux.js",
+    "./commun/dbf": "./src/commun/dbf.js",
+    "./commun/xml": "./src/commun/xml.js"
   },
   "bin": {
     "referentiels-sante": "./src/cli.js"

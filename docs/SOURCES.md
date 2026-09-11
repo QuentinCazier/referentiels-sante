@@ -62,14 +62,45 @@ Tables utilisées pour FINESS+ :
 | Origine juridique | annexes des arrêtés annuels fixant les tarifs des prestations d'hospitalisation, publiés au Journal officiel |
 | Licence | le site de l'ATIH porte une mention « tous droits réservés » ; les tarifs eux-mêmes sont le contenu d'un acte réglementaire. L'outil télécharge l'archive à la source et ne la redistribue pas |
 
-## Sources envisagées
+### CCAM (Assurance Maladie)
+
+| | |
+|---|---|
+| Producteur | Caisse nationale de l'Assurance Maladie ; la CCAM est fixée par décisions de l'UNCAM publiées au Journal officiel |
+| Adresse | <https://www.ameli.fr/accueil-de-la-ccam/telechargement/fichiers-informatiques-nouvelle-structure/index.php> (archives DBF en trois parties, guide d'utilisation) |
+| Format | dBase III, page de code DOS (CP850), tables historisées |
+| Licence | pas de licence explicite sur les fichiers ; la nomenclature elle-même est le contenu d'actes réglementaires. L'outil télécharge et convertit, ne redistribue pas. Une version communautaire existe sur data.gouv.fr (jeu « CCAM Ameli », Licence Ouverte 2.0) |
+
+### CIM-10 FR à usage PMSI (ATIH)
+
+| | |
+|---|---|
+| Producteur | ATIH, d'après la CIM-10 de l'OMS, avec les extensions françaises |
+| Adresse | pages annuelles « CIM-10 FR à usage PMSI » de l'ATIH, fichier ClaML (XML) et PDF |
+| Licence | droits de l'OMS et de l'ATIH (mention « Copyright WHO, ATIH » dans le fichier) ; usage PMSI. Convertisseur seul, aucune redistribution |
+
+### Base de données publique des médicaments (ANSM, HAS, UNCAM)
+
+| | |
+|---|---|
+| Adresse | <https://base-donnees-publique.medicaments.gouv.fr/telechargement> |
+| Format | texte tabulé sans en-tête ; encodage variable selon le fichier (ISO-8859-1 ou UTF-8), dates JJ/MM/AAAA |
+| Licence | Licence Ouverte (fichier `licence_bdpm.pdf` sur le site) : réutilisation libre avec mention de la source et de la date |
+
+### NABM, LPP, UCD (Assurance Maladie)
+
+| | |
+|---|---|
+| Adresse | <http://www.codage.ext.cnamts.fr/> : pages de téléchargement de la table nationale de biologie (nabm), de la LPP (tips) et des UCD (bdm_it) |
+| Format | tables dBase en page de code DOS, plus des fichiers texte à longueur fixe non lus par l'outil |
+| Licence | pas de licence explicite ; contenu d'actes réglementaires. Convertisseur seul |
+
+## Sources envisagées ou écartées
 
 | Source | État | Point d'attention |
 |---|---|---|
-| CCAM (Assurance Maladie, ameli.fr) | à faire | fichiers DBF et texte à structure fixe ; licence des fichiers ameli non explicite, une version communautaire existe sur data.gouv.fr sous Licence Ouverte |
+| NGAP (Assurance Maladie) | écartée faute de source structurée | publiée uniquement en PDF ; l'outil ne fabrique pas de table à partir d'un PDF |
 | RPPS, annuaire santé en libre accès (ANS) | à faire | Licence Ouverte 2.0 ; fichiers de plusieurs centaines de Mo, données à caractère personnel de professionnels : réutilisation encadrée |
-| Base de données publique des médicaments (ANSM) | à faire | réutilisation libre avec mention de la source et de la date |
-| CIM-10 FR à usage PMSI (ATIH) | exclue pour l'instant | droits de l'OMS sur la classification ; un convertisseur ClaML sans redistribution reste envisageable |
 | Tables NOEMIE et B2 (Assurance Maladie) | exclue | cahiers des charges sous droits de la CNAM |
 
 ## Mention de source
