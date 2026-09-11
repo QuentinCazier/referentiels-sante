@@ -15,6 +15,7 @@ import { exporterCcam, convertirTableDbf } from './ccam/index.js';
 import { exporterCim10, EDITIONS } from './cim10/index.js';
 import { exporterBdpm } from './bdpm/index.js';
 import { exporterTableCnam, SOURCES } from './cnam/index.js';
+import { verifierTout, formaterRapport } from './verifier/index.js';
 import { extraireZip } from './commun/zip.js';
 
 const AIDE = `referentiels-sante : référentiels publics de la santé en CSV et JSON propres
@@ -24,11 +25,12 @@ Usage
                                [--mensuel] [--sans-libelles] [--sans-jsonl] [--sans-historique]
   referentiels-sante nos       [TABLE ...]     (défaut : les tables utilisées pour FINESS)
   referentiels-sante ghs       [--annee 2026 | --source <zip ou URL>]
-  referentiels-sante ccam      [--brut] [--dossier-dbf <dossier>]
+  referentiels-sante ccam      [--brut] [--date AAAA-MM-JJ] [--dossier-dbf <dossier>]
   referentiels-sante cim10     [--edition 2025 | --source <zip ou xml>]
   referentiels-sante bdpm      [FICHIER ...]   (défaut : tous : specialites, presentations, compositions…)
   referentiels-sante nabm | lpp | ucd          tables de codage de l'Assurance Maladie
   referentiels-sante dbf       <fichier.dbf | archive.zip> [--encodage cp850|latin1|utf8]
+  referentiels-sante verifier  [SOURCE ...]    contrôle que pages et fichiers sources répondent (code de sortie 1 sinon)
 
 Options communes
   --sortie <dossier>   dossier de sortie (défaut : data/<commande>)
@@ -42,6 +44,7 @@ Exemples
   referentiels-sante nos TRE_R66-CategorieEtablissement
   referentiels-sante ghs --annee 2026
   referentiels-sante ccam                       actes, activités, phases, tarifs par grille, chapitres, notes
+  referentiels-sante ccam --date 2025-06-30     la CCAM telle qu'en vigueur à cette date
   referentiels-sante cim10 --edition 2025       codes CIM-10 FR à usage PMSI avec hiérarchie et rubriques
   referentiels-sante bdpm specialites presentations
   referentiels-sante dbf LPP_fiche_tot901.dbf   n'importe quelle table DBF vers CSV
@@ -62,6 +65,7 @@ const options = {
   annee: { type: 'string' },
   source: { type: 'string' },
   edition: { type: 'string' },
+  date: { type: 'string' },
   brut: { type: 'boolean', default: false },
   'dossier-dbf': { type: 'string' },
   encodage: { type: 'string', default: 'cp850' },
@@ -110,9 +114,15 @@ async function principal(argv) {
   }
 
   if (commande === 'ccam') {
-    const resume = await exporterCcam({ ...commun, sortie: values.sortie ?? 'data/ccam', brut: values.brut, dossierDbf: values['dossier-dbf'] });
-    journal(`CCAM ${resume.version ?? ''} : ${resume.actes} actes, ${resume.activites} activités, ${resume.phases} phases, ${resume.tarifsGrilles} prix par grille, ${resume.notes} notes en ${resume.dureeSecondes} s`);
+    const resume = await exporterCcam({ ...commun, sortie: values.sortie ?? 'data/ccam', brut: values.brut, dateReference: values.date ?? null, dossierDbf: values['dossier-dbf'] });
+    journal(`CCAM ${resume.version ?? ''}${resume.dateReference ? ` au ${resume.dateReference}` : ''} : ${resume.actes} actes, ${resume.activites} activités, ${resume.phases} phases, ${resume.tarifsGrilles} prix par grille, ${resume.notes} notes en ${resume.dureeSecondes} s`);
     return 0;
+  }
+
+  if (commande === 'verifier') {
+    const rapport = await verifierTout({ sources: reste, journal });
+    process.stdout.write(formaterRapport(rapport) + '\n');
+    return rapport.ok ? 0 : 1;
   }
 
   if (commande === 'cim10') {

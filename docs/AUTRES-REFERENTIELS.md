@@ -65,9 +65,20 @@ referentiels-sante ucd     # unités communes de dispensation : table totale, hi
 ```
 
 Chaque table DBF devient un CSV UTF-8 portant son nom en minuscules, avec les
-colonnes du fichier d'origine (le dictionnaire des colonnes est dans les notes
-et guides publiés sur les mêmes pages). Aucune synthèse n'est appliquée : ces
-tables sont déjà à plat.
+colonnes du fichier d'origine. Aucune synthèse n'est appliquée : ces tables
+sont déjà à plat.
+
+Un fichier `<source>-colonnes.md` est écrit à côté des CSV : il décrit chaque
+colonne et dit d'où vient la description. Pour les UCD, la notice officielle
+(« lisez_moi.pdf ») décrit tous les champs ; pour la NABM et la LPP, la CNAM ne
+publie pas de dictionnaire, les descriptions sont déduites du nom des colonnes
+et des valeurs observées, et signalées comme telles. Trois colonnes de
+l'historique LPP (`pecp01` à `pecp03`) restent non documentées.
+
+Si la page de téléchargement est injoignable ou méconnaissable, l'outil se
+rabat sur la dernière version connue au moment de la publication et le dit
+dans son journal. La commande `verifier` signale quand cette version de repli
+est dépassée.
 
 ## N'importe quel DBF
 
@@ -80,6 +91,20 @@ Convertit une ou plusieurs tables DBF locales (ou toutes celles d'une archive)
 en CSV, avec les mêmes conversions de types (nombres, dates, booléens). Utile
 pour un fichier récupéré à la main derrière un formulaire, ou pour une version
 ancienne.
+
+## Vérifier que les sources répondent
+
+```bash
+referentiels-sante verifier            # toutes les sources
+referentiels-sante verifier ccam cnam  # une partie
+```
+
+Pour chaque source, la commande lit la page de téléchargement, résout les
+fichiers attendus et envoie une requête d'en-tête sur chacun, sans rien
+télécharger de lourd. Elle vérifie aussi que les adresses de repli embarquées
+(CCAM, NABM, LPP, UCD) correspondent encore à la version publiée. Le code de
+sortie vaut 1 dès qu'un contrôle échoue ; un workflow hebdomadaire l'exécute et
+ouvre un ticket en cas d'échec.
 
 ## Ce qui manque encore
 

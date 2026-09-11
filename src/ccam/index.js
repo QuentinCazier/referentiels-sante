@@ -107,13 +107,20 @@ export function concatener(ligne, prefixe) {
     .trim() || null;
 }
 
-/** Ne garde, pour chaque clé, que la ligne à la date de modification la plus récente. */
-function plusRecent(lignes, cle, date) {
+/**
+ * Ne garde, pour chaque clé, que la version en vigueur : la ligne à la date de
+ * modification la plus récente, ou, si `dateReference` est donnée (AAAA-MM-JJ),
+ * la plus récente parmi celles dont la date de modification lui est antérieure
+ * ou égale. Une clé sans version à cette date est absente du résultat.
+ */
+export function versionEnVigueur(lignes, cle, date, dateReference = null) {
   const m = new Map();
   for (const l of lignes) {
+    const d = String(l[date] ?? '');
+    if (dateReference && d > dateReference) continue;
     const k = String(l[cle]);
     const courant = m.get(k);
-    if (!courant || String(l[date] ?? '') >= String(courant[date] ?? '')) m.set(k, l);
+    if (!courant || d >= String(courant[date] ?? '')) m.set(k, l);
   }
   return m;
 }
@@ -173,8 +180,10 @@ export const COLONNES_NOTES = ['code_acte', 'ordre', 'type_note', 'type_note_lib
  * @param {string} o.sortie
  * @param {string} [o.version]
  * @param {boolean} [o.brut] convertir aussi chaque table telle quelle dans sortie/brut
+ * @param {string} [o.dateReference] AAAA-MM-JJ : synthèse telle qu'en vigueur à cette date (défaut : la plus récente)
  */
-export async function convertirDbf({ dossierDbf, sortie, version = null, brut = false, journal = () => {} }) {
+export async function convertirDbf({ dossierDbf, sortie, version = null, brut = false, dateReference = null, journal = () => {} }) {
+  if (dateReference && !/^\d{4}-\d{2}-\d{2}$/.test(dateReference)) throw new Error(`date de référence invalide : ${dateReference} (attendu AAAA-MM-JJ)`);
   mkdirSync(sortie, { recursive: true });
   const debut = Date.now();
 
@@ -194,8 +203,8 @@ export async function convertirDbf({ dossierDbf, sortie, version = null, brut = 
   journal(`tables de codes chargées, ${arbre.size} chapitres`);
 
   // Activités et phases : version la plus récente de chaque code.
-  const activites = plusRecent(await table(dossierDbf, 'R_ACTE_IVITE'), 'COD_AA', 'DT_MODIF');
-  const phases = plusRecent(await table(dossierDbf, 'R_ACTE_IVITE_PHASE'), 'COD_AAP', 'DT_MODIF');
+  const activites = versionEnVigueur(await table(dossierDbf, 'R_ACTE_IVITE'), 'COD_AA', 'DT_MODIF', dateReference);
+  const phases = versionEnVigueur(await table(dossierDbf, 'R_ACTE_IVITE_PHASE'), 'COD_AAP', 'DT_MODIF', dateReference);
   const pmsi = new Map((await table(dossierDbf, 'R_AAP_PMSI')).map((l) => [l.AAP_COD, l]));
   const activitesParActe = new Map();
   for (const a of activites.values()) {
@@ -211,6 +220,7 @@ export async function convertirDbf({ dossierDbf, sortie, version = null, brut = 
   if (cheminActes) {
     for await (const l of lireDbf(cheminActes, { champsBruts: (n) => n.startsWith('NOM_LONG') })) {
       versionsActes++;
+      if (dateReference && String(l.DT_MODIF ?? '') > dateReference) continue;
       const courant = actes.get(l.COD_ACTE);
       if (!courant || String(l.DT_MODIF ?? '') >= String(courant.DT_MODIF ?? '')) {
         actes.set(l.COD_ACTE, { ...l, libelle_long: concatener(l, 'NOM_LONG') });
@@ -349,7 +359,7 @@ export async function convertirDbf({ dossierDbf, sortie, version = null, brut = 
   }
 
   const resume = {
-    source: dossierDbf, version, converti: new Date().toISOString(), dureeSecondes: Math.round((Date.now() - debut) / 100) / 10,
+    source: dossierDbf, version, dateReference, converti: new Date().toISOString(), dureeSecondes: Math.round((Date.now() - debut) / 100) / 10,
     actes: actes.size, versionsActes, activites: activites.size, phases: phases.size, tarifsGrilles: nbTarifs,
     activitesModificateurs: nbActModif, chapitres: arbre.size, notes: nbNotes, tablesBrutes,
     fichiers: ['ccam-actes.csv', 'ccam-activites.csv', 'ccam-phases.csv', 'ccam-tarifs-grilles.csv', 'ccam-modificateurs.csv',
@@ -380,9 +390,9 @@ export async function convertirTableDbf(chemin, dossierSortie, { encodage = 'cp8
 }
 
 /** Téléchargement, extraction et conversion en une étape. */
-export async function exporterCcam({ sortie = 'data/ccam', cache = '.cache', forcer = false, brut = false, dossierDbf, archives, journal = () => {} }) {
+export async function exporterCcam({ sortie = 'data/ccam', cache = '.cache', forcer = false, brut = false, dateReference = null, dossierDbf, archives, journal = () => {} }) {
   let dossier = dossierDbf;
   let version = null;
   if (!dossier) ({ dossier, version } = await preparerDbf({ cache, forcer, journal, archives }));
-  return convertirDbf({ dossierDbf: dossier, sortie, version, brut, journal });
+  return convertirDbf({ dossierDbf: dossier, sortie, version, brut, dateReference, journal });
 }

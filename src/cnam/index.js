@@ -17,6 +17,7 @@ import { mkdirSync, readdirSync, writeFileSync, openSync, readSync, closeSync, c
 import { telecharger, recupererTexte } from '../commun/telecharger.js';
 import { extraireZip } from '../commun/zip.js';
 import { convertirTableDbf } from '../ccam/index.js';
+import { documenterTable } from './colonnes.js';
 
 const HOTE = 'http://www.codage.ext.cnamts.fr';
 
@@ -43,21 +44,52 @@ export const SOURCES = {
   },
 };
 
+/**
+ * Dernières versions connues au moment de la publication, utilisées si la page
+ * de téléchargement est injoignable ou méconnaissable. La commande `verifier`
+ * signale quand elles sont dépassées.
+ */
+export const VERSIONS_CONNUES = {
+  nabm: {
+    version: '105',
+    fichiers: ['NABM_FICHE_TOT105.dbf', 'NABM_HISTO_TOT105.dbf', 'NABM_INCOMP_TOT105.dbf']
+      .map((nom) => ({ nom, url: `${HOTE}/codif/nabm/download_file.php?filename=nabm/${nom}` })),
+  },
+  lpp: {
+    version: '901',
+    fichiers: [{ nom: 'LPP901.zip', url: `${HOTE}/codif/tips/download_file.php?filename=tips/LPP901.zip` }],
+  },
+  ucd: {
+    version: '00802',
+    fichiers: ['ucd_total_00802_20260907.dbf', 'ucd_histo_prix_00802_20260907.dbf', 'retro_histo_taux_00802_20260907.dbf', 'retro_histo_cout_sup_00802_20260907.dbf']
+      .map((nom) => ({ nom, url: `${HOTE}/codif/bdm_it/download_file.php?filename=bdm_it/${nom}` })),
+  },
+};
+
 /** Lit la page de téléchargement et renvoie les fichiers « total » courants. */
 export async function trouverFichiers(nom, { journal = () => {} } = {}) {
   const source = SOURCES[nom];
   if (!source) throw new Error(`source inconnue : ${nom} (choix : ${Object.keys(SOURCES).join(', ')})`);
-  const html = await recupererTexte(source.page);
+  let html;
+  try {
+    html = await recupererTexte(source.page);
+  } catch (erreur) {
+    journal(`page injoignable (${erreur.message}), utilisation de la version connue ${VERSIONS_CONNUES[nom].version}`);
+    return { ...VERSIONS_CONNUES[nom], repli: true };
+  }
   const fichiers = [];
   for (const m of html.matchAll(source.motif)) {
     const url = new URL(m[1], source.base).toString();
     if (!fichiers.some((f) => f.url === url)) fichiers.push({ url, nom: m[2] });
   }
-  if (!fichiers.length) throw new Error(`aucun fichier trouvé sur ${source.page}`);
+  if (!fichiers.length) {
+    journal(`aucun fichier reconnu sur la page, utilisation de la version connue ${VERSIONS_CONNUES[nom].version}`);
+    return { ...VERSIONS_CONNUES[nom], repli: true };
+  }
   // Premier groupe de chiffres du nom : LPP901.zip, NABM_FICHE_TOT105.dbf, ucd_total_00802_20260907.dbf.
   const version = fichiers[0].nom.match(/(\d{3,})/)?.[1] ?? 'inconnue';
   journal(`${source.libelle} : version ${version}, ${fichiers.length} fichier(s)`);
-  return { version, fichiers };
+  return { version, fichiers, repli: false };
 }
 
 const SIGNATURE_ZIP = Buffer.from('PK', 'latin1');
@@ -120,9 +152,20 @@ export async function exporterTableCnam(nom, { sortie, cache = '.cache', forcer 
   for (const f of dbfs) {
     tables.push(await convertirTableDbf(join(dossierDbf, f), dossierSortie, { encodage, journal }));
   }
+
+  // Dictionnaire des colonnes, pour que les tables restent lisibles sans la notice.
+  const documentation = [
+    `# ${source.libelle} : colonnes`, '',
+    `Version ${version}, tables converties le ${new Date().toISOString().slice(0, 10)} depuis ${source.page}.`, '',
+    'La colonne « Source » indique si la description vient de la notice officielle publiée avec les fichiers,',
+    'si elle est déduite du nom de la colonne et des valeurs observées, ou si la colonne n\'est pas documentée.', '',
+    ...tables.map((t) => documenterTable(t.table, t.colonnes) + '\n'),
+  ].join('\n');
+  writeFileSync(join(dossierSortie, `${nom}-colonnes.md`), documentation);
+
   const resume = {
     source: source.page, libelle: source.libelle, version, converti: new Date().toISOString(),
-    fichiersSources: fichiers.map((f) => f.nom), tables,
+    fichiersSources: fichiers.map((f) => f.nom), tables, dictionnaire: `${nom}-colonnes.md`,
   };
   writeFileSync(join(dossierSortie, `${nom}-resume.json`), JSON.stringify(resume, null, 2) + '\n');
   return resume;

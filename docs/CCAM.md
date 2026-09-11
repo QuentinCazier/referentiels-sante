@@ -13,6 +13,23 @@ des fichiers de synthèse où seule la version la plus récente de chaque code e
 retenue. L'option `--brut` convertit en plus chaque table telle quelle dans
 `brut/`.
 
+## La CCAM à une date donnée
+
+Les tables sont historisées : chaque acte, activité ou phase porte une date de
+modification par version. Par défaut la synthèse prend la version la plus
+récente, ce qui convient pour un référentiel courant mais pas pour rejouer une
+facturation passée. `--date AAAA-MM-JJ` retient, pour chaque code, la version
+dont la date de modification est la plus récente parmi celles antérieures ou
+égales à la date demandée ; un code créé après cette date est absent.
+
+```bash
+referentiels-sante ccam --date 2025-06-30 --sortie data/ccam-2025-06
+```
+
+La date de référence est rappelée dans `ccam-resume.json`. Les prix par grille
+(`ccam-tarifs-grilles.csv`) restent l'historique complet quelle que soit la
+date : c'est la table à interroger pour un tarif à une date précise.
+
 ## Le modèle en trois niveaux
 
 ```

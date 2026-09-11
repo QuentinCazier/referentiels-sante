@@ -7,9 +7,10 @@ on:
 
 jobs:
   tests:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         node: [22, 24, 26]
     steps:
       - uses: actions/checkout@v4
