@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm test
+      - name: Conversion des fixtures de bout en bout
+        run: node src/cli.js finess --structures tests/fixtures/finess-structures-exemple.json --fichier-activites tests/fixtures/finess-activites-exemple.json --activites --sans-libelles --sortie sortie-test

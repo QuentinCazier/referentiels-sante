@@ -1,0 +1,3244 @@
+{
+ "schemaVersion": "v1.0.0",
+ "generatedAt": "2026-04-01T14:46:05.500385900Z",
+ "pmej": [
+  {
+   "numFiness": "010000156",
+   "pmSmsseId": "2",
+   "activitesAutorisees": [
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "147057",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "1903-03-03",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1301",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "824",
+        "modeFonctionnement": "09",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1341392",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "1903-03-03",
+       "etatObjet1": "010",
+       "identifiantObjet1": "147057",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43285",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-48769",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "272",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "69",
+        "formeActivite": "15"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920403",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43285",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "178733",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "736",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "105",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43305",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-49215",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "277",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "91",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920433",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43305",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "120851",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "1993-06-25",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1079",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "302",
+        "modeFonctionnement": "19",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1355192",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "1993-06-25",
+       "etatObjet1": "010",
+       "identifiantObjet1": "120851",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      },
+      {
+       "evenementId": "1355191",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2017-06-08",
+       "etatObjet1": "013",
+       "identifiantObjet1": "120851",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "013"
+      }
+     ],
+     "engagement": [],
+     "capacite": [
+      {
+       "idCapacite": "186139",
+       "nombre": "3",
+       "precision": null,
+       "variation": null,
+       "activiteAeId": "120851",
+       "engagementId": null,
+       "habilitation": null,
+       "statutCapacite": "09",
+       "modeFinancement": null,
+       "uniteMesureCapacite": "02",
+       "typeLogement": null,
+       "genre": null
+      }
+     ],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43041",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-48166",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "268",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "67",
+        "formeActivite": "15"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920037",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43041",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43299",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-49214",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "276",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "90",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920424",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43299",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "250585",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1143",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "471",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "42537",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-126",
+      "dateDebutActiviteAutorisee": "2000-06-07",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "178",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "01",
+        "modaliteActivite": "00",
+        "formeActivite": "01"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "919281",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2000-06-07",
+       "etatObjet1": "010",
+       "identifiantObjet1": "42537",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "9481",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-RC57626",
+      "dateDebutActiviteAutorisee": "2004-01-01",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "101",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASR",
+      "caracteristiquesSpecifiques": {
+       "aaSoumiseAReconnaissanceId": null,
+       "etatArhgos": null,
+       "activiteAeId": null,
+       "typeActiviteASR": {
+        "activiteSanitaireRegulee": "R4",
+        "modaliteActivite": "N2",
+        "formeActivite": "01"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "869698",
+       "dateEnregistrement": "2025-10-21 19:32:23",
+       "dateEvenement": "2004-01-01",
+       "etatObjet1": "010",
+       "identifiantObjet1": "9481",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [
+      {
+       "engagementId": "869698",
+       "typeEngagement": "CONV",
+       "sousTypeEngagement": "CPM",
+       "dateEffetEngagement": null,
+       "dateSignatureEngagement": null,
+       "dateCaduciteEngagement": null,
+       "dateFinEngagement": null,
+       "dateNotificationEngagement": null,
+       "nomEngagement": null,
+       "identifiantEngagement": "84-82-C55994",
+       "motifArrete": null,
+       "autoriteRegulationEngagement": []
+      }
+     ],
+     "capacite": [
+      {
+       "idCapacite": "14221",
+       "nombre": "4",
+       "precision": null,
+       "variation": null,
+       "activiteAeId": "9481",
+       "engagementId": null,
+       "habilitation": null,
+       "statutCapacite": "09",
+       "modeFinancement": null,
+       "uniteMesureCapacite": "02",
+       "typeLogement": null,
+       "genre": null
+      }
+     ],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "44089",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-5452",
+      "dateDebutActiviteAutorisee": "2010-05-06",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "216",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "11",
+        "modaliteActivite": "83",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "921609",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2010-05-06",
+       "etatObjet1": "010",
+       "identifiantObjet1": "44089",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "9351",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-RC66218",
+      "dateDebutActiviteAutorisee": "2005-01-01",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "126",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASR",
+      "caracteristiquesSpecifiques": {
+       "aaSoumiseAReconnaissanceId": null,
+       "etatArhgos": null,
+       "activiteAeId": null,
+       "typeActiviteASR": {
+        "activiteSanitaireRegulee": "R5",
+        "modaliteActivite": "N6",
+        "formeActivite": "01"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "869503",
+       "dateEnregistrement": "2025-10-21 19:32:23",
+       "dateEvenement": "2005-01-01",
+       "etatObjet1": "010",
+       "identifiantObjet1": "9351",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [
+      {
+       "engagementId": "869503",
+       "typeEngagement": "CONV",
+       "sousTypeEngagement": "CPM",
+       "dateEffetEngagement": "2008-04-15",
+       "dateSignatureEngagement": "2008-04-15",
+       "dateCaduciteEngagement": null,
+       "dateFinEngagement": null,
+       "dateNotificationEngagement": null,
+       "nomEngagement": null,
+       "identifiantEngagement": "84-82-C56160",
+       "motifArrete": null,
+       "autoriteRegulationEngagement": []
+      }
+     ],
+     "capacite": [
+      {
+       "idCapacite": "14026",
+       "nombre": "6",
+       "precision": null,
+       "variation": null,
+       "activiteAeId": "9351",
+       "engagementId": null,
+       "habilitation": null,
+       "statutCapacite": "09",
+       "modeFinancement": null,
+       "uniteMesureCapacite": "02",
+       "typeLogement": null,
+       "genre": null
+      }
+     ],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43307",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-49216",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "278",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "92",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920436",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43307",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "9639",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-RC57791",
+      "dateDebutActiviteAutorisee": "2005-01-01",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "134",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASR",
+      "caracteristiquesSpecifiques": {
+       "aaSoumiseAReconnaissanceId": null,
+       "etatArhgos": null,
+       "activiteAeId": null,
+       "typeActiviteASR": {
+        "activiteSanitaireRegulee": "R7",
+        "modaliteActivite": "N7",
+        "formeActivite": "01"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "869935",
+       "dateEnregistrement": "2025-10-21 19:32:23",
+       "dateEvenement": "2005-01-01",
+       "etatObjet1": "010",
+       "identifiantObjet1": "9639",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [
+      {
+       "engagementId": "869935",
+       "typeEngagement": "CONV",
+       "sousTypeEngagement": "CPM",
+       "dateEffetEngagement": "2008-04-15",
+       "dateSignatureEngagement": "2008-04-15",
+       "dateCaduciteEngagement": null,
+       "dateFinEngagement": null,
+       "dateNotificationEngagement": null,
+       "nomEngagement": null,
+       "identifiantEngagement": "84-82-C56160",
+       "motifArrete": null,
+       "autoriteRegulationEngagement": []
+      }
+     ],
+     "capacite": [
+      {
+       "idCapacite": "14458",
+       "nombre": "5",
+       "precision": null,
+       "variation": null,
+       "activiteAeId": "9639",
+       "engagementId": null,
+       "habilitation": null,
+       "statutCapacite": "09",
+       "modeFinancement": null,
+       "uniteMesureCapacite": "02",
+       "typeLogement": null,
+       "genre": null
+      }
+     ],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "15243",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-52321",
+      "dateDebutActiviteAutorisee": "2006-04-28",
+      "dateFinActiviteAutorisee": "2026-04-27",
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "424",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AASA",
+      "caracteristiquesSpecifiques": {
+       "aaAutreActSoinId": "15243",
+       "dateLimDep": null,
+       "dateLimVisiteConformite": null,
+       "dateVisite": null,
+       "numDecision": "2006-28-4",
+       "resultatVisite": null,
+       "etatArhgos": null,
+       "activiteAeId": "15243",
+       "typeActiviteAASA": {
+        "activiteSanitaireRegulee": "A0",
+        "modaliteActivite": "00",
+        "formeActivite": "15"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "878340",
+       "dateEnregistrement": "2025-10-21 19:33:46",
+       "dateEvenement": "2006-04-28",
+       "etatObjet1": "010",
+       "identifiantObjet1": "15243",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      },
+      {
+       "evenementId": "878342",
+       "dateEnregistrement": "2025-10-21 19:33:46",
+       "dateEvenement": "2006-04-28",
+       "etatObjet1": "012",
+       "identifiantObjet1": "15243",
+       "identifiantObjet2": null,
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": null,
+       "codeEvenement": "012"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "203121",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "934",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "181",
+        "modeFonctionnement": "23",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "44197",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-66080",
+      "dateDebutActiviteAutorisee": "2018-05-09",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "280",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "94",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "921771",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2018-05-09",
+       "etatObjet1": "010",
+       "identifiantObjet1": "44197",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "201025",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "931",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "181",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "43309",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": "84-82-49219",
+      "dateDebutActiviteAutorisee": "2009-06-10",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "281",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "AMF",
+      "caracteristiquesSpecifiques": {
+       "aaSoinAmfId": null,
+       "activiteAeId": null,
+       "typeActiviteAMF": {
+        "activiteAMF": "18",
+        "modaliteActivite": "95",
+        "formeActivite": "00"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "920439",
+       "dateEnregistrement": "2025-10-21 19:34:49",
+       "dateEvenement": "2009-06-10",
+       "etatObjet1": "010",
+       "identifiantObjet1": "43309",
+       "identifiantObjet2": "2",
+       "systemeMaitre": "02",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    }
+   ],
+   "ege": [
+    {
+     "egeId": "799",
+     "numFinessEge": "010780195",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "178734",
+        "etatObjet": "I",
+        "identifiantAutorisation": "178733",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1904-04-04",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "736",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "105",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1435045",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1904-04-04",
+         "etatObjet1": "012",
+         "identifiantObjet1": "178734",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1435046",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "015",
+         "identifiantObjet1": "178734",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43286",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43285",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "272",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12037",
+         "activiteAeId": "43286",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "69",
+          "formeActivite": "15"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920405",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43286",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920404",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43286",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "201026",
+        "etatObjet": "I",
+        "identifiantAutorisation": "201025",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1904-04-04",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "931",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "181",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1466030",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "015",
+         "identifiantObjet1": "201026",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1466029",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1904-04-04",
+         "etatObjet1": "012",
+         "identifiantObjet1": "201026",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43300",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43299",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "276",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12044",
+         "activiteAeId": "43300",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "90",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920426",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43300",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920425",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43300",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43308",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43307",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "278",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12048",
+         "activiteAeId": "43308",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "92",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920438",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43308",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920437",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43308",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43042",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43041",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "268",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "11915",
+         "activiteAeId": "43042",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "67",
+          "formeActivite": "15"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920039",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43042",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920038",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43042",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "9482",
+        "etatObjet": "A",
+        "identifiantAutorisation": "9481",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": null,
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "101",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASR",
+        "caracteristiquesSpecifiques": {
+         "aaSoumiseAReconnaissanceId": "4741",
+         "etatArhgos": "23",
+         "activiteAeId": "9482",
+         "typeActiviteASR": {
+          "activiteSanitaireRegulee": "R4",
+          "modaliteActivite": "N2",
+          "formeActivite": "01"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "869699",
+         "dateEnregistrement": "2025-10-21 19:32:23",
+         "dateEvenement": "2004-01-01",
+         "etatObjet1": "010",
+         "identifiantObjet1": "9482",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "14223",
+         "nombre": "4",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9482",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        },
+        {
+         "idCapacite": "14222",
+         "nombre": "4",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9482",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "09",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "120852",
+        "etatObjet": "I",
+        "identifiantAutorisation": "120851",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1993-06-25",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "1079",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "27580",
+         "activiteAeId": "120852",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "302",
+          "modeFonctionnement": "19",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1179461",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1904-04-04",
+         "etatObjet1": "012",
+         "identifiantObjet1": "120852",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1179462",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "015",
+         "identifiantObjet1": "120852",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1355193",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1993-06-25",
+         "etatObjet1": "010",
+         "identifiantObjet1": "120852",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        },
+        {
+         "evenementId": "1355194",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "013",
+         "identifiantObjet1": "120852",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "013"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "120240",
+         "nombre": "3",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "120852",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        },
+        {
+         "idCapacite": "186140",
+         "nombre": "3",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "120852",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "09",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "44198",
+        "etatObjet": "A",
+        "identifiantAutorisation": "44197",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2018-05-09",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "280",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12493",
+         "activiteAeId": "44198",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "94",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "921773",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2018-05-22",
+         "etatObjet1": "012",
+         "identifiantObjet1": "44198",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "921772",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2018-05-09",
+         "etatObjet1": "010",
+         "identifiantObjet1": "44198",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "147058",
+        "etatObjet": "A",
+        "identifiantAutorisation": "147057",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1903-03-03",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "1301",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "43214",
+         "activiteAeId": "147058",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "824",
+          "modeFonctionnement": "09",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1198725",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "012",
+         "identifiantObjet1": "147058",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1341393",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "010",
+         "identifiantObjet1": "147058",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "44090",
+        "etatObjet": "A",
+        "identifiantAutorisation": "44089",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2010-05-06",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "216",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12439",
+         "activiteAeId": "44090",
+         "typeActiviteAMF": {
+          "activiteAMF": "11",
+          "modaliteActivite": "83",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "921611",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2010-06-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "44090",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "921610",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2010-05-06",
+         "etatObjet1": "010",
+         "identifiantObjet1": "44090",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "9352",
+        "etatObjet": "A",
+        "identifiantAutorisation": "9351",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": null,
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "126",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASR",
+        "caracteristiquesSpecifiques": {
+         "aaSoumiseAReconnaissanceId": "4676",
+         "etatArhgos": "26",
+         "activiteAeId": "9352",
+         "typeActiviteASR": {
+          "activiteSanitaireRegulee": "R5",
+          "modaliteActivite": "N6",
+          "formeActivite": "01"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "869504",
+         "dateEnregistrement": "2025-10-21 19:32:23",
+         "dateEvenement": "2005-01-01",
+         "etatObjet1": "010",
+         "identifiantObjet1": "9352",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "14028",
+         "nombre": "6",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9352",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        },
+        {
+         "idCapacite": "14027",
+         "nombre": "6",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9352",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "09",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "15244",
+        "etatObjet": "A",
+        "identifiantAutorisation": "15243",
+        "numAutorisationArhgos": "84-82-52321",
+        "dateDebutActiviteAutorisee": "2006-04-28",
+        "dateFinActiviteAutorisee": "2026-04-27",
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "424",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AASA",
+        "caracteristiquesSpecifiques": {
+         "aaAutreActSoinId": "15244",
+         "dateLimDep": "2025-08-27",
+         "dateLimVisiteConformite": null,
+         "dateVisite": "2008-03-05",
+         "numDecision": "2006-28-4",
+         "resultatVisite": "C",
+         "etatArhgos": "6",
+         "activiteAeId": "15244",
+         "typeActiviteAASA": {
+          "activiteSanitaireRegulee": "A0",
+          "modaliteActivite": "00",
+          "formeActivite": "15"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "878341",
+         "dateEnregistrement": "2025-10-21 19:33:46",
+         "dateEvenement": "2006-04-28",
+         "etatObjet1": "010",
+         "identifiantObjet1": "15244",
+         "identifiantObjet2": "2",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "42538",
+        "etatObjet": "A",
+        "identifiantAutorisation": "42537",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2000-06-07",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "178",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "11663",
+         "activiteAeId": "42538",
+         "typeActiviteAMF": {
+          "activiteAMF": "01",
+          "modaliteActivite": "00",
+          "formeActivite": "01"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "919283",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2001-08-03",
+         "etatObjet1": "012",
+         "identifiantObjet1": "42538",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "919282",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2000-06-07",
+         "etatObjet1": "010",
+         "identifiantObjet1": "42538",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43310",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43309",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "281",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12049",
+         "activiteAeId": "43310",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "95",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920441",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43310",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920440",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43310",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "15243",
+        "etatObjet": "A",
+        "identifiantAutorisation": null,
+        "numAutorisationArhgos": "84-82-52321",
+        "dateDebutActiviteAutorisee": "2006-04-28",
+        "dateFinActiviteAutorisee": "2026-04-27",
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "424",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AASA",
+        "caracteristiquesSpecifiques": {
+         "aaAutreActSoinId": "15243",
+         "dateLimDep": null,
+         "dateLimVisiteConformite": null,
+         "dateVisite": null,
+         "numDecision": "2006-28-4",
+         "resultatVisite": null,
+         "etatArhgos": null,
+         "activiteAeId": "15243",
+         "typeActiviteAASA": {
+          "activiteSanitaireRegulee": "A0",
+          "modaliteActivite": "00",
+          "formeActivite": "15"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "878340",
+         "dateEnregistrement": "2025-10-21 19:33:46",
+         "dateEvenement": "2006-04-28",
+         "etatObjet1": "010",
+         "identifiantObjet1": "15243",
+         "identifiantObjet2": "2",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "PM",
+         "codeEvenement": "010"
+        },
+        {
+         "evenementId": "878342",
+         "dateEnregistrement": "2025-10-21 19:33:46",
+         "dateEvenement": "2006-04-28",
+         "etatObjet1": "012",
+         "identifiantObjet1": "15243",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "9640",
+        "etatObjet": "A",
+        "identifiantAutorisation": "9639",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": null,
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "134",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASR",
+        "caracteristiquesSpecifiques": {
+         "aaSoumiseAReconnaissanceId": "4820",
+         "etatArhgos": "26",
+         "activiteAeId": "9640",
+         "typeActiviteASR": {
+          "activiteSanitaireRegulee": "R7",
+          "modaliteActivite": "N7",
+          "formeActivite": "01"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "869936",
+         "dateEnregistrement": "2025-10-21 19:32:23",
+         "dateEvenement": "2005-01-01",
+         "etatObjet1": "010",
+         "identifiantObjet1": "9640",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "14460",
+         "nombre": "5",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9640",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        },
+        {
+         "idCapacite": "14459",
+         "nombre": "5",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "9640",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "09",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "250586",
+        "etatObjet": "I",
+        "identifiantAutorisation": "250585",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1990-01-01",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "1143",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "471",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1508666",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "015",
+         "identifiantObjet1": "250586",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1508665",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1990-01-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "250586",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "43306",
+        "etatObjet": "A",
+        "identifiantAutorisation": "43305",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2009-06-10",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "277",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "AMF",
+        "caracteristiquesSpecifiques": {
+         "aaSoinAmfId": "12047",
+         "activiteAeId": "43306",
+         "typeActiviteAMF": {
+          "activiteAMF": "18",
+          "modaliteActivite": "91",
+          "formeActivite": "00"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "920435",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "012",
+         "identifiantObjet1": "43306",
+         "identifiantObjet2": null,
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "920434",
+         "dateEnregistrement": "2025-10-21 19:34:49",
+         "dateEvenement": "2009-06-10",
+         "etatObjet1": "010",
+         "identifiantObjet1": "43306",
+         "identifiantObjet2": "799",
+         "systemeMaitre": "02",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "203122",
+        "etatObjet": "I",
+        "identifiantAutorisation": "203121",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1904-04-04",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "799",
+        "typeActiviteSMSSE": "934",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "181",
+          "modeFonctionnement": "23",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1480376",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2017-06-08",
+         "etatObjet1": "015",
+         "identifiantObjet1": "203122",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1480375",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1904-04-04",
+         "etatObjet1": "012",
+         "identifiantObjet1": "203122",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "numFiness": "010000172",
+   "pmSmsseId": "4",
+   "activitesAutorisees": [
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "194157",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "888",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "165",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "147061",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "1903-03-03",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1301",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "824",
+        "modeFonctionnement": "09",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1341416",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "1903-03-03",
+       "etatObjet1": "010",
+       "identifiantObjet1": "147061",
+       "identifiantObjet2": "4",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "121639",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "1993-12-18",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1088",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "309",
+        "modeFonctionnement": "04",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1355568",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "1993-12-18",
+       "etatObjet1": "010",
+       "identifiantObjet1": "121639",
+       "identifiantObjet2": "4",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    }
+   ],
+   "ege": [
+    {
+     "egeId": "801",
+     "numFinessEge": "010780211",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "147062",
+        "etatObjet": "A",
+        "identifiantAutorisation": "147061",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1903-03-03",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "801",
+        "typeActiviteSMSSE": "1301",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "43218",
+         "activiteAeId": "147062",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "824",
+          "modeFonctionnement": "09",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1073573",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "012",
+         "identifiantObjet1": "147062",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1341417",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "010",
+         "identifiantObjet1": "147062",
+         "identifiantObjet2": "801",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "80532",
+         "nombre": "0",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "147062",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "194158",
+        "etatObjet": "A",
+        "identifiantAutorisation": "194157",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1990-01-01",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "801",
+        "typeActiviteSMSSE": "888",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "165",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1465747",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1990-01-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "194158",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "121640",
+        "etatObjet": "I",
+        "identifiantAutorisation": "121639",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1993-12-18",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "801",
+        "typeActiviteSMSSE": "1088",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "30648",
+         "activiteAeId": "121640",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "309",
+          "modeFonctionnement": "04",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1165581",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1994-01-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "121640",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1165582",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2011-04-15",
+         "etatObjet1": "015",
+         "identifiantObjet1": "121640",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1355569",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1993-12-18",
+         "etatObjet1": "010",
+         "identifiantObjet1": "121640",
+         "identifiantObjet2": "801",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "115035",
+         "nombre": "0",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "121640",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "numFiness": "010000206",
+   "pmSmsseId": "5",
+   "activitesAutorisees": [
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "140889",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "2005-05-11",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1226",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "723",
+        "modeFonctionnement": "19",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1351688",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2005-05-11",
+       "etatObjet1": "010",
+       "identifiantObjet1": "140889",
+       "identifiantObjet2": "5",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      },
+      {
+       "evenementId": "1351687",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2005-07-06",
+       "etatObjet1": "013",
+       "identifiantObjet1": "140889",
+       "identifiantObjet2": "5",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "013"
+      }
+     ],
+     "engagement": [],
+     "capacite": [
+      {
+       "idCapacite": "184825",
+       "nombre": "8",
+       "precision": null,
+       "variation": null,
+       "activiteAeId": "140889",
+       "engagementId": null,
+       "habilitation": null,
+       "statutCapacite": "09",
+       "modeFinancement": null,
+       "uniteMesureCapacite": "02",
+       "typeLogement": null,
+       "genre": null
+      }
+     ],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "147055",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "2004-02-17",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1301",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "824",
+        "modeFonctionnement": "09",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1351672",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2004-02-17",
+       "etatObjet1": "010",
+       "identifiantObjet1": "147055",
+       "identifiantObjet2": "5",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      },
+      {
+       "evenementId": "1351671",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2005-11-17",
+       "etatObjet1": "013",
+       "identifiantObjet1": "147055",
+       "identifiantObjet2": "5",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "013"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    }
+   ],
+   "ege": [
+    {
+     "egeId": "106",
+     "numFinessEge": "010002699",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "147056",
+        "etatObjet": "I",
+        "identifiantAutorisation": "147055",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2004-02-17",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "106",
+        "typeActiviteSMSSE": "1301",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "43095",
+         "activiteAeId": "147056",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "824",
+          "modeFonctionnement": "09",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1351673",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2004-02-17",
+         "etatObjet1": "010",
+         "identifiantObjet1": "147056",
+         "identifiantObjet2": "106",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        },
+        {
+         "evenementId": "1351674",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2005-11-17",
+         "etatObjet1": "013",
+         "identifiantObjet1": "147056",
+         "identifiantObjet2": "106",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "013"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      }
+     ]
+    },
+    {
+     "egeId": "109",
+     "numFinessEge": "010002749",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "140890",
+        "etatObjet": "I",
+        "identifiantAutorisation": "140889",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2005-05-11",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "109",
+        "typeActiviteSMSSE": "1226",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "40029",
+         "activiteAeId": "140890",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "723",
+          "modeFonctionnement": "19",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1351689",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2005-05-11",
+         "etatObjet1": "010",
+         "identifiantObjet1": "140890",
+         "identifiantObjet2": "109",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        },
+        {
+         "evenementId": "1351690",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2005-07-06",
+         "etatObjet1": "013",
+         "identifiantObjet1": "140890",
+         "identifiantObjet2": "109",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "013"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "184826",
+         "nombre": "8",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "140890",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "09",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "numFiness": "160018883",
+   "pmSmsseId": "6",
+   "activitesAutorisees": [
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "147069",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "1903-03-03",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1301",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "824",
+        "modeFonctionnement": "09",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1341448",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "1903-03-03",
+       "etatObjet1": "010",
+       "identifiantObjet1": "147069",
+       "identifiantObjet2": "6",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "218763",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1015",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "219",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "147071",
+      "etatObjet": "A",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": "2000-01-06",
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1301",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "824",
+        "modeFonctionnement": "09",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [
+      {
+       "evenementId": "1339296",
+       "dateEnregistrement": "2025-10-21 19:37:03",
+       "dateEvenement": "2000-01-06",
+       "etatObjet1": "010",
+       "identifiantObjet1": "147071",
+       "identifiantObjet2": "6",
+       "systemeMaitre": "01",
+       "typeObjet1": "AC",
+       "typeObjet2": "PM",
+       "codeEvenement": "010"
+      }
+     ],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    },
+    {
+     "caracteristiquesGeneriques": {
+      "activiteAeId": "218765",
+      "etatObjet": "I",
+      "identifiantAutorisation": null,
+      "numAutorisationArhgos": null,
+      "dateDebutActiviteAutorisee": null,
+      "dateFinActiviteAutorisee": null,
+      "dateFinEffectiveActivite": null,
+      "dateCaduciteAutorisation": null,
+      "egeId": null,
+      "typeActiviteSMSSE": "1015",
+      "pmSmsseExploitanteId": null
+     },
+     "nature": {
+      "codeNature": "ASDR",
+      "caracteristiquesSpecifiques": {
+       "aaSanitaireDiverseReguleeId": null,
+       "activiteAeId": null,
+       "typeActiviteASDR": {
+        "activiteSanitaireDiverseRegulee": "219",
+        "modeFonctionnement": "03",
+        "public": "990"
+       }
+      }
+     },
+     "evenement": [],
+     "engagement": [],
+     "capacite": [],
+     "zoneIntervention": null
+    }
+   ],
+   "ege": [
+    {
+     "egeId": "807",
+     "numFinessEge": "010780328",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "147072",
+        "etatObjet": "I",
+        "identifiantAutorisation": "147071",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "2000-01-06",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "807",
+        "typeActiviteSMSSE": "1301",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "43228",
+         "activiteAeId": "147072",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "824",
+          "modeFonctionnement": "09",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1142230",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2021-01-27",
+         "etatObjet1": "015",
+         "identifiantObjet1": "147072",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1142229",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2000-01-06",
+         "etatObjet1": "012",
+         "identifiantObjet1": "147072",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1339297",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "2000-01-06",
+         "etatObjet1": "010",
+         "identifiantObjet1": "147072",
+         "identifiantObjet2": "807",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "106278",
+         "nombre": "0",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "147072",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "218766",
+        "etatObjet": "I",
+        "identifiantAutorisation": "218765",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1990-01-01",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "807",
+        "typeActiviteSMSSE": "1015",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "219",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1439702",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2021-01-27",
+         "etatObjet1": "015",
+         "identifiantObjet1": "218766",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1439701",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1990-01-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "218766",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      }
+     ]
+    },
+    {
+     "egeId": "806",
+     "numFinessEge": "010780310",
+     "activitesExercees": [
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "218764",
+        "etatObjet": "I",
+        "identifiantAutorisation": "218763",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1990-01-01",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "806",
+        "typeActiviteSMSSE": "1015",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": null,
+         "activiteAeId": null,
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "219",
+          "modeFonctionnement": "03",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1464944",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "2021-01-27",
+         "etatObjet1": "015",
+         "identifiantObjet1": "218764",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "015"
+        },
+        {
+         "evenementId": "1464943",
+         "dateEnregistrement": "2025-10-21 19:40:04",
+         "dateEvenement": "1990-01-01",
+         "etatObjet1": "012",
+         "identifiantObjet1": "218764",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        }
+       ],
+       "engagement": [],
+       "capacite": [],
+       "zoneIntervention": null
+      },
+      {
+       "caracteristiquesGeneriques": {
+        "activiteAeId": "147070",
+        "etatObjet": "A",
+        "identifiantAutorisation": "147069",
+        "numAutorisationArhgos": null,
+        "dateDebutActiviteAutorisee": "1903-03-03",
+        "dateFinActiviteAutorisee": null,
+        "dateFinEffectiveActivite": null,
+        "dateCaduciteAutorisation": null,
+        "egeId": "806",
+        "typeActiviteSMSSE": "1301",
+        "egeExploitanteId": null,
+        "egeFacturante": null
+       },
+       "nature": {
+        "codeNature": "ASDR",
+        "caracteristiquesSpecifiques": {
+         "aaSanitaireDiverseReguleeId": "43226",
+         "activiteAeId": "147070",
+         "typeActiviteASDR": {
+          "activiteSanitaireDiverseRegulee": "824",
+          "modeFonctionnement": "09",
+          "public": "990"
+         }
+        }
+       },
+       "evenement": [
+        {
+         "evenementId": "1073613",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "012",
+         "identifiantObjet1": "147070",
+         "identifiantObjet2": null,
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": null,
+         "codeEvenement": "012"
+        },
+        {
+         "evenementId": "1341449",
+         "dateEnregistrement": "2025-10-21 19:37:03",
+         "dateEvenement": "1903-03-03",
+         "etatObjet1": "010",
+         "identifiantObjet1": "147070",
+         "identifiantObjet2": "806",
+         "systemeMaitre": "01",
+         "typeObjet1": "AC",
+         "typeObjet2": "EG",
+         "codeEvenement": "010"
+        }
+       ],
+       "engagement": [],
+       "capacite": [
+        {
+         "idCapacite": "80547",
+         "nombre": "0",
+         "precision": null,
+         "variation": null,
+         "activiteAeId": "147070",
+         "engagementId": null,
+         "habilitation": null,
+         "statutCapacite": "08",
+         "modeFinancement": null,
+         "uniteMesureCapacite": "02",
+         "typeLogement": null,
+         "genre": null
+        }
+       ],
+       "zoneIntervention": null
+      }
+     ]
+    },
+    {
+     "egeId": "664",
+     "numFinessEge": "010011641",
+     "activitesExercees": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "referentiels-sante",
+  "version": "0.1.0",
+  "description": "Référentiels publics de la santé en France (FINESS+, nomenclatures NOS, tarifs GHS) convertis en CSV et JSON propres, sans dépendance",
+  "keywords": [
+    "finess",
+    "finess+",
+    "nos",
+    "ans",
+    "atih",
+    "ghs",
+    "sante",
+    "hopital",
+    "open-data",
+    "referentiel",
+    "nomenclature"
+  ],
+  "homepage": "https://github.com/QuentinCazier/referentiels-sante#readme",
+  "bugs": "https://github.com/QuentinCazier/referentiels-sante/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuentinCazier/referentiels-sante.git"
+  },
+  "license": "MIT",
+  "author": "Quentin Cazier",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./finess": "./src/finess/index.js",
+    "./nos": "./src/nos/index.js",
+    "./ghs": "./src/ghs/index.js",
+    "./commun/json-flux": "./src/commun/json-flux.js"
+  },
+  "bin": {
+    "referentiels-sante": "./src/cli.js"
+  },
+  "files": [
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "finess": "node ./src/cli.js finess",
+    "nos": "node ./src/cli.js nos",
+    "ghs": "node ./src/cli.js ghs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

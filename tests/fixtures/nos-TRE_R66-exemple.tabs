@@ -1,0 +1,17 @@
+<OID>;<Type fichier>;<Nom fichier>;<Description>;<URL fichier>;<Date valid>;<Date fin>;<Date MàJ>
+1.2.250.1.213.1.6.1.8;TRE;TRE_R66_CategorieEtablissement.tabs;Catégorie d'établissements;https://mos.esante.gouv.fr/NOS/TRE_R66-CategorieEtablissement;19790101000000;;20260505120000
+<OID>;<Code>;<Libellé adapté>;<Libellé court>;<Libellé long>;<Date valid>;<Date fin>;<Date MàJ> 
+1.2.250.1.213.1.6.1.8;001;Autres lits de m.R.;Autres lits de mR;Autres lits de m.R.;19790101000000;19990915000000;19990915000000
+1.2.250.1.213.1.6.1.8;002;Autres places de l-f.;Autres places de l-f;Autres places de l-f.;19790101000000;19990915000000;19990915000000
+1.2.250.1.213.1.6.1.8;003;Autres lits de l-s;Autres lits de l-s;Autres lits de l-s;19790101000000;19990915000000;19990915000000
+1.2.250.1.213.1.6.1.8;101;Centre hospitalier régional (CHR);C.H.R.;Centre Hospitalier Régional (C.H.R.);19790101000000;;19900105000000
+1.2.250.1.213.1.6.1.8;106;Centre hospitalier (ex Hôpital local);C.H. (ex H.L.);Centre hospitalier, ex Hôpital local;19790101000000;;20120111000000
+1.2.250.1.213.1.6.1.8;108;Etablissement de Convalescence et de Repos;Etab.Convales.&Repos;Etablissement de Convalescence et de Repos;19790101000000;20130625000000;19940705000000
+1.2.250.1.213.1.6.1.8;109;Etablissement de santé privé autorisé en soins de suite et de réadaptation (SSR);Soins suite réadap;Etablissement de santé privé autorisé en SSR;20130625000000;;20130625000000
+1.2.250.1.213.1.6.1.8;112;Centre de convalescence, de cure ou de réadaptation;Ctre.Conval.Cure Réa;Centre de Convalescence Cure ou Réadaptation;19790101000000;19990915000000;19990915000000
+1.2.250.1.213.1.6.1.8;114;Hôpital des armées;Hôpital armées;Hôpital des armées;19790101000000;;19990915000000
+1.2.250.1.213.1.6.1.8;101;Centre hospitalier régional (CHR);C.H.R.;Centre Hospitalier Régional (C.H.R.);19790101000000;;19900105000000
+1.2.250.1.213.1.6.1.8;106;Centre hospitalier (ex Hôpital local);C.H. (ex H.L.);Centre hospitalier, ex Hôpital local;19790101000000;;20120111000000
+1.2.250.1.213.1.6.1.8;355;Centre hospitalier (CH);C.H.;Centre Hospitalier (C.H.);19790101000000;;19790123000000
+1.2.250.1.213.1.6.1.8;460;Service autonomie aide;S.A.A.;Service autonomie aide (SAA);20020101000000;;20231030120000
+1.2.250.1.213.1.6.1.8;620;Pharmacie d'Officine;Pharmacie d'Officine;Pharmacie d'Officine;19790101000000;;19810603000000

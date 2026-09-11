@@ -1,0 +1,114 @@
+/**
+ * Tarifs des GHS, GHT et suppléments publiés par l'ATIH (fichiers « ghs_web »),
+ * issus des arrêtés tarifaires annuels. Les archives contiennent six CSV en
+ * ISO-8859-1, séparateur « ; », virgule décimale, dates JJ/MM/AAAA :
+ *   ghs_pub.csv / ghs_pri.csv   tarifs GHS des secteurs public et privé
+ *   ght_pub.csv / ght_pri.csv   tarifs des GHT (hospitalisation à domicile)
+ *   sup_pub.csv / sup_pri.csv   suppléments journaliers (réanimation, soins intensifs…)
+ */
+
+import { join } from 'node:path';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+
+import { lireZip } from '../commun/zip.js';
+import { lireCsv, EcrivainCsv } from '../commun/csv.js';
+import { dateIso, nombreFr, texte } from '../commun/dates.js';
+import { telecharger } from '../commun/telecharger.js';
+
+const BASE = 'https://www.atih.sante.fr/sites/default/files/public/content/1568';
+
+/** Archives connues, par année de campagne tarifaire. */
+export const ARCHIVES = {
+  2026: `${BASE}/ghs_web_20260101.zip`,
+  2025: `${BASE}/ghs_web_20250301_1.zip`,
+  2024: `${BASE}/ghs_web_20240301.zip`,
+  2023: `${BASE}/ghs_web_20230301.zip`,
+};
+
+export const PAGE_ATIH = 'https://www.atih.sante.fr/tarifs-mco-et-had';
+
+const SECTEURS = { pub: 'public', pri: 'prive' };
+
+export const COLONNES_GHS = ['secteur', 'ghs', 'cmd', 'activite_soins', 'ghm', 'libelle', 'seuil_bas', 'seuil_haut',
+  'tarif', 'exb_forfait', 'exb_journalier', 'exh_journalier', 'date_effet'];
+export const COLONNES_GHT = ['secteur', 'ght', 'libelle', 'tarif', 'date_effet'];
+export const COLONNES_SUPPLEMENTS = ['secteur', 'code', 'tarif'];
+
+const decoderLatin1 = (tampon) => new TextDecoder('latin1').decode(tampon);
+
+function ligneGhs(secteur, l) {
+  return {
+    secteur,
+    ghs: texte(l['GHS-NRO']),
+    cmd: texte(l['CMD-COD']),
+    activite_soins: texte(l['DCS-MCO']),
+    ghm: texte(l['GHM-NRO']),
+    libelle: texte(l['GHS-LIB']),
+    seuil_bas: nombreFr(l['SEU-BAS']),
+    seuil_haut: nombreFr(l['SEU-HAU']),
+    tarif: nombreFr(l['GHS-PRI']),
+    exb_forfait: nombreFr(l['EXB-FORFAIT']),
+    exb_journalier: nombreFr(l['EXB-JOURNALIER']),
+    exh_journalier: nombreFr(l['EXH-PRI']),
+    date_effet: dateIso(l['DATE-EFFET'] ?? l['DAT-EFFET']),
+  };
+}
+
+const ligneGht = (secteur, l) => ({
+  secteur, ght: texte(l['GHT-NRO']), libelle: texte(l['GHT-LIB']), tarif: nombreFr(l['GHT-PRI']),
+  date_effet: dateIso(l['DATE-EFFET'] ?? l['DAT-EFFET']),
+});
+
+const ligneSupplement = (secteur, l) => ({ secteur, code: texte(l.CODE), tarif: nombreFr(l.TARIF) });
+
+/**
+ * Convertit une archive ghs_web (Buffer ou chemin) en tableaux normalisés.
+ * @returns {{ ghs: object[], ght: object[], supplements: object[], fichiers: string[] }}
+ */
+export function convertirArchive(source) {
+  const entrees = lireZip(source);
+  const resultat = { ghs: [], ght: [], supplements: [], fichiers: [...entrees.keys()] };
+  for (const [nom, contenu] of entrees) {
+    const m = /^(?:.*\/)?(ghs|ght|sup)_(pub|pri)\.csv$/i.exec(nom);
+    if (!m) continue;
+    const secteur = SECTEURS[m[2].toLowerCase()];
+    const lignes = lireCsv(decoderLatin1(contenu), { separateur: ';' });
+    if (m[1].toLowerCase() === 'ghs') resultat.ghs.push(...lignes.map((l) => ligneGhs(secteur, l)));
+    else if (m[1].toLowerCase() === 'ght') resultat.ght.push(...lignes.map((l) => ligneGht(secteur, l)));
+    else resultat.supplements.push(...lignes.map((l) => ligneSupplement(secteur, l)));
+  }
+  return resultat;
+}
+
+/**
+ * Télécharge l'archive d'une campagne (ou lit un fichier local / une URL) et
+ * écrit ghs.csv, ght.csv, supplements.csv et tarifs.json dans `sortie`.
+ */
+export async function exporterTarifs({ annee, source, sortie = 'data/ghs', cache = '.cache', forcer = false, journal = () => {} }) {
+  let chemin;
+  if (source && !/^https?:/.test(source)) chemin = source;
+  else {
+    const url = source ?? ARCHIVES[annee];
+    if (!url) throw new Error(`campagne ${annee} inconnue : indiquez l'URL de l'archive ATIH (voir ${PAGE_ATIH})`);
+    chemin = join(cache, 'ghs', url.split('/').pop());
+    await telecharger(url, chemin, { forcer, journal });
+  }
+  const donnees = convertirArchive(readFileSync(chemin));
+  mkdirSync(sortie, { recursive: true });
+
+  for (const [nom, colonnes, lignes] of [
+    ['ghs', COLONNES_GHS, donnees.ghs], ['ght', COLONNES_GHT, donnees.ght], ['supplements', COLONNES_SUPPLEMENTS, donnees.supplements],
+  ]) {
+    const csv = new EcrivainCsv(join(sortie, `${nom}.csv`), colonnes);
+    for (const l of lignes) await csv.ecrire(l);
+    await csv.fermer();
+  }
+  const resume = {
+    source: chemin, campagne: annee ?? null, converti: new Date().toISOString(),
+    ghs: donnees.ghs.length, ght: donnees.ght.length, supplements: donnees.supplements.length,
+    datesEffet: [...new Set(donnees.ghs.map((l) => l.date_effet).filter(Boolean))].sort(),
+  };
+  writeFileSync(join(sortie, 'tarifs.json'), JSON.stringify({ resume, ...donnees }, null, 1) + '\n');
+  writeFileSync(join(sortie, 'tarifs-resume.json'), JSON.stringify(resume, null, 2) + '\n');
+  return resume;
+}
