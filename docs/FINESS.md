@@ -140,8 +140,15 @@ Dans le flux FINESS+ du 11 septembre 2026, environ 1 400 libellés de voie ont
 perdu la séquence « TH », remplacée par « E » : « rue de la Catherinette »
 devient « CAEERINETTE », « Monthieux » devient « MONEIEUX », « Berthelot »
 devient « BEREELOT », « Thoiry » devient « EOIRY ». Le phénomène touche aussi
-des adresses d'entités juridiques. L'outil recopie la source sans la corriger ;
-l'anomalie est signalée ici pour que les utilisateurs en tiennent compte.
+des adresses d'entités juridiques. L'outil recopie la source sans la corriger.
+L'anomalie est connue de l'ANS, qui a annoncé une correction
+([ticket 28 du dépôt ansforge/finess](https://github.com/ansforge/finess/issues/28)).
+
+L'inversion des coordonnées projetées et géographiques signalée plus haut fait
+l'objet du [ticket 24](https://github.com/ansforge/finess/issues/24) : selon
+les adresses, `coordonneeX` et `coordonneeY` portent tantôt les coordonnées
+Lambert, tantôt la longitude et la latitude. Vérifiez la plage de valeurs
+avant tout usage cartographique.
 
 ## activites.csv
 
