@@ -3,6 +3,8 @@
 **Les référentiels publics de la santé en France, convertis en CSV et JSON
 propres. Sans dépendance, en une commande.**
 
+Site : <https://quentincazier.github.io/referentiels-sante/>
+
 Les données de référence du système de santé sont publiques, mais publiées dans
 des formats pénibles : JSON de 750 Mo impossible à charger en mémoire, CSV en
 ISO-8859-1 à virgule décimale et dates à la française, tables de codes en XML

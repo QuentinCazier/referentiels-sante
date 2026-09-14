@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FINESS en CSV, CCAM et CIM-10 en fichiers propres · referentiels-sante</title>
+<meta name="description" content="Obtenir le fichier FINESS en CSV, la CCAM, la CIM-10 et la base des médicaments en fichiers propres. Outil libre et gratuit, une commande, sans dépendance.">
+<meta name="author" content="Quentin Cazier">
+<link rel="canonical" href="https://quentincazier.github.io/referentiels-sante/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FINESS en CSV, CCAM et CIM-10 en fichiers propres">
+<meta property="og:description" content="Les référentiels publics de la santé en France convertis en CSV et JSON : FINESS+, CCAM, CIM-10, médicaments, NABM, LPP, UCD, tarifs GHS. Outil libre, une commande.">
+<meta property="og:url" content="https://quentincazier.github.io/referentiels-sante/">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%231d4f91'/%3E%3Cg fill='%23fff'%3E%3Crect x='7' y='9' width='18' height='2.6'/%3E%3Crect x='7' y='14.7' width='18' height='2.6'/%3E%3Crect x='7' y='20.4' width='11' height='2.6'/%3E%3C/g%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "referentiels-sante",
+  "description": "Convertit les référentiels publics de la santé en France (FINESS+, CCAM, CIM-10, base des médicaments, NABM, LPP, UCD, tarifs GHS) en fichiers CSV et JSON.",
+  "url": "https://quentincazier.github.io/referentiels-sante/",
+  "downloadUrl": "https://www.npmjs.com/package/referentiels-sante",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "softwareRequirements": "Node.js 22 ou plus récent",
+  "license": "https://opensource.org/licenses/MIT",
+  "inLanguage": "fr",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": { "@type": "Person", "name": "Quentin Cazier", "url": "https://github.com/QuentinCazier" },
+  "codeRepository": "https://github.com/QuentinCazier/referentiels-sante"
+}
+</script>
+<style>
+  :root {
+    --fond: #ffffff;
+    --fond-2: #f5f6f8;
+    --texte: #1f2328;
+    --texte-2: #57606a;
+    --trait: #d8dee4;
+    --lien: #1d4f91;
+    --code-fond: #f5f6f8;
+    --alerte-fond: #fff8e6;
+    --alerte-trait: #e7c566;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fond: #0f1419;
+      --fond-2: #161c23;
+      --texte: #e6e8eb;
+      --texte-2: #9aa4af;
+      --trait: #2b333c;
+      --lien: #8cb4ea;
+      --code-fond: #161c23;
+      --alerte-fond: #231e10;
+      --alerte-trait: #6d5a22;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fond: #0f1419;
+    --fond-2: #161c23;
+    --texte: #e6e8eb;
+    --texte-2: #9aa4af;
+    --trait: #2b333c;
+    --lien: #8cb4ea;
+    --code-fond: #161c23;
+    --alerte-fond: #231e10;
+    --alerte-trait: #6d5a22;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--fond);
+    color: var(--texte);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  a { color: var(--lien); text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--lien); outline-offset: 2px; }
+
+  .barre { border-bottom: 1px solid var(--trait); }
+  .barre .col { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; padding-block: 14px; }
+  .barre .nom { font-weight: 600; color: var(--texte); text-decoration: none; }
+  .barre nav { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: 15px; }
+
+  .col { max-width: 780px; margin: 0 auto; padding-inline: 20px; }
+  main { padding-block: 40px 24px; }
+
+  h1 { font-size: clamp(28px, 5vw, 38px); line-height: 1.2; margin: 0 0 16px; letter-spacing: -0.01em; }
+  h2 { font-size: 24px; line-height: 1.3; margin: 56px 0 14px; padding-top: 28px; border-top: 1px solid var(--trait); }
+  .insecable { white-space: nowrap; }
+  h3 { font-size: 18px; line-height: 1.4; margin: 30px 0 8px; }
+  p, ul, ol { margin: 0 0 14px; }
+  li { margin-bottom: 6px; }
+  .intro { font-size: 18px; color: var(--texte-2); }
+
+  code { font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace; font-size: 0.9em; background: var(--code-fond); border: 1px solid var(--trait); border-radius: 4px; padding: 1px 5px; overflow-wrap: anywhere; }
+  pre { font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace; font-size: 14px; line-height: 1.6; background: var(--code-fond); border: 1px solid var(--trait); border-radius: 6px; padding: 14px 16px; overflow-x: auto; margin: 0 0 16px; }
+  pre code { background: none; border: 0; padding: 0; font-size: inherit; overflow-wrap: normal; }
+  .commande { font-size: 16px; }
+
+  .tableau { overflow-x: auto; margin: 0 0 16px; border: 1px solid var(--trait); border-radius: 6px; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: 1px solid var(--trait); }
+  th { background: var(--fond-2); font-weight: 600; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  td.nombre { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  table.fichiers td code { overflow-wrap: normal; white-space: nowrap; }
+  td code { overflow-wrap: normal; }
+  table.fichiers td:first-child { width: 1%; }
+  @media (max-width: 640px) {
+    table.fichiers thead { display: none; }
+    table.fichiers td { display: block; border-bottom: 0; padding-bottom: 2px; }
+    table.fichiers td + td { padding-top: 0; padding-bottom: 12px; border-bottom: 1px solid var(--trait); }
+    table.fichiers tr:last-child td + td { border-bottom: 0; }
+  }
+
+  .note { background: var(--alerte-fond); border: 1px solid var(--alerte-trait); border-radius: 6px; padding: 12px 16px; margin: 0 0 16px; }
+  .note p:last-child { margin-bottom: 0; }
+
+  ol.etapes { padding-left: 22px; }
+  ol.etapes li { margin-bottom: 12px; }
+
+  footer { border-top: 1px solid var(--trait); margin-top: 48px; }
+  footer .col { padding-block: 24px 40px; font-size: 14px; color: var(--texte-2); }
+  footer p { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+<header class="barre">
+  <div class="col">
+    <a class="nom" href="./">referentiels-sante</a>
+    <nav aria-label="Liens du projet">
+      <a href="https://github.com/QuentinCazier/referentiels-sante">Code source</a>
+      <a href="https://www.npmjs.com/package/referentiels-sante">npm</a>
+      <a href="https://github.com/QuentinCazier/referentiels-sante/blob/main/docs/FINESS.md">Documentation</a>
+    </nav>
+  </div>
+</header>
+
+<main class="col">
+
+<h1>Le fichier FINESS en CSV, la CCAM, la <span class="insecable">CIM-10</span> et les médicaments en fichiers propres</h1>
+
+<p class="intro">referentiels-sante télécharge les référentiels publics de la santé à leur source officielle et les convertit en CSV et en JSON, lisibles dans Excel, une base de données ou un script. L'outil est libre, gratuit et tient en une commande.</p>
+
+<pre class="commande"><code>npx referentiels-sante finess</code></pre>
+
+<p>Cette commande récupère le flux FINESS+ du jour et écrit dans le dossier <code>data/finess</code> les 174 714 établissements sanitaires, sociaux et médico-sociaux (dont 104 777 en activité), les entités juridiques et les groupements hospitaliers de territoire.</p>
+
+<h2 id="pas-a-pas">Obtenir FINESS en CSV sous Windows, pas à pas</h2>
+
+<p>Pas besoin d'être développeur. Il faut un poste avec un accès à internet et environ dix minutes la première fois.</p>
+
+<ol class="etapes">
+  <li>Installez <a href="https://nodejs.org/fr">Node.js</a>, version 22 ou plus récente (la version « LTS » proposée par le site convient).</li>
+  <li>Créez un dossier de travail, par exemple <code>C:\referentiels</code>, ouvrez-le dans l'Explorateur, puis tapez <code>powershell</code> dans la barre d'adresse et validez.</li>
+  <li>Dans la fenêtre qui s'ouvre, tapez la commande suivante. À la première utilisation, npx demande l'autorisation d'installer l'outil : répondez <code>y</code>.
+<pre><code>npx referentiels-sante finess</code></pre>
+  Si PowerShell répond que l'exécution de scripts est désactivée, utilisez plutôt :
+<pre><code>npx.cmd referentiels-sante finess</code></pre></li>
+  <li>Au bout d'une minute environ, le temps de télécharger 50 Mo et de les convertir, ouvrez <code>data\finess\etablissements.csv</code> dans Excel. Le fichier est en UTF-8 avec séparateur point-virgule : dans un Excel en français, les accents et les colonnes s'affichent directement.</li>
+</ol>
+
+<div class="note">
+  <p>Derrière le proxy d'un établissement, l'installation ou les téléchargements peuvent être bloqués. Faites le premier essai depuis un poste avec un accès direct à internet, ou voyez les réglages avec votre DSI.</p>
+</div>
+
+<h2 id="fichiers">Ce que contient le dossier data/finess</h2>
+
+<div class="tableau">
+<table class="fichiers">
+  <thead><tr><th>Fichier</th><th>Contenu</th></tr></thead>
+  <tbody>
+    <tr><td><code>etablissements.csv</code></td><td>Un établissement par ligne (numéro FINESS ET) : nom, catégorie et ses agrégats, statut ESPIC, mode de fixation tarifaire, dates d'ouverture et de fermeture, adresse, code commune INSEE, département, coordonnées GPS, téléphone, entité juridique de rattachement.</td></tr>
+    <tr><td><code>entites-juridiques.csv</code></td><td>Une entité juridique par ligne (numéro FINESS EJ) : dénomination, SIREN, statut juridique, code APE, adresse du siège, nombre d'établissements.</td></tr>
+    <tr><td><code>groupements-conventionnels.csv</code></td><td>Les 135 groupements hospitaliers de territoire.</td></tr>
+    <tr><td><code>groupements-cooperation.csv</code></td><td>Les groupements dotés de la personnalité morale, dont les GCS.</td></tr>
+    <tr><td><code>groupements-membres.csv</code></td><td>Les membres de chaque groupement, avec leur numéro FINESS et l'établissement support.</td></tr>
+    <tr><td><code>etablissements-format-historique.csv</code></td><td>Les établissements au format de l'ancienne extraction FINESS, pour les requêtes et macros écrites avant juillet 2026.</td></tr>
+    <tr><td><code>structures-resume.json</code></td><td>La date du flux source, la version du schéma et les comptages.</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Chaque colonne est rattachée au champ FINESS+ dont elle provient dans le <a href="https://github.com/QuentinCazier/referentiels-sante/blob/main/docs/FINESS.md">dictionnaire des colonnes</a>. Les libellés (catégorie d'établissement, statut juridique, département) viennent des nomenclatures officielles de l'Agence du Numérique en Santé.</p>
+
+<h2 id="referentiels">Les autres référentiels</h2>
+
+<div class="tableau">
+<table>
+  <thead><tr><th>Référentiel</th><th>Publié par, dans quel format</th><th>Commande</th></tr></thead>
+  <tbody>
+    <tr><td>FINESS+ structures</td><td>ANS, JSON compressé quotidien sur data.gouv.fr</td><td><code>finess</code></td></tr>
+    <tr><td>FINESS+ activités et autorisations</td><td>ANS, JSON compressé quotidien</td><td><code>finess --activites</code></td></tr>
+    <tr><td>CCAM</td><td>Assurance Maladie, 72 tables dBase en page de code DOS</td><td><code>ccam</code></td></tr>
+    <tr><td>CIM-10 FR à usage PMSI</td><td>ATIH, XML ClaML annuel</td><td><code>cim10 --edition 2025</code></td></tr>
+    <tr><td>Base publique des médicaments</td><td>ANSM, fichiers texte tabulés</td><td><code>bdpm</code></td></tr>
+    <tr><td>NABM, LPP, UCD</td><td>Assurance Maladie, tables dBase</td><td><code>nabm</code>, <code>lpp</code>, <code>ucd</code></td></tr>
+    <tr><td>Tarifs GHS, GHT et suppléments</td><td>ATIH, CSV des arrêtés tarifaires</td><td><code>ghs --annee 2026</code></td></tr>
+    <tr><td>Nomenclatures NOS</td><td>ANS, tables de codes</td><td><code>nos TRE_R66-CategorieEtablissement</code></td></tr>
+    <tr><td>Une table dBase quelconque</td><td>Votre fichier</td><td><code>dbf fichier.dbf</code></td></tr>
+  </tbody>
+</table>
+</div>
+
+<p>Chaque commande se lance de la même façon : <code>npx referentiels-sante ccam</code>, <code>npx referentiels-sante cim10 --edition 2025</code>, et ainsi de suite. <code>npx referentiels-sante ccam --date 2025-06-30</code> donne la CCAM telle qu'elle était à cette date. La NGAP n'est pas couverte : l'Assurance Maladie ne la publie qu'en PDF.</p>
+
+<h2 id="anomalies">Anomalies connues dans FINESS+</h2>
+
+<p>L'outil recopie la source sans la corriger. Deux défauts de FINESS+ sont signalés à l'ANS et restaient présents dans le fichier du 14 septembre 2026 :</p>
+
+<ul>
+  <li>Dans 1 364 adresses d'établissements, la séquence « TH » a été remplacée par « E » : « rue de la Catherinette » est devenue « Caeerinette », « Thoiry » est devenu « Eoiry ». <a href="https://github.com/ansforge/finess/issues/28">Ticket de l'ANS</a>.</li>
+  <li>Pour une partie des adresses, les coordonnées projetées et géographiques sont inversées. <a href="https://github.com/ansforge/finess/issues/24">Ticket de l'ANS</a>. Les colonnes latitude et longitude sont à contrôler avant un usage cartographique.</li>
+</ul>
+
+<p>La comparaison complète avec l'ancienne extraction, champ par champ, est détaillée dans la <a href="https://github.com/QuentinCazier/referentiels-sante/blob/main/docs/FINESS.md">documentation FINESS</a>.</p>
+
+<h2 id="questions">Questions fréquentes</h2>
+
+<h3>Je cherche un fichier finess.csv : pourquoi ne plus le trouver sur data.gouv.fr ?</h3>
+<p>L'extraction FINESS diffusée en CSV sur data.gouv.fr n'est plus mise à jour : ses dernières données datent du 4 mai 2026. Depuis le 20 juillet 2026, FINESS est publié par l'Agence du Numérique en Santé sous le nom FINESS+, en JSON. referentiels-sante reconstruit un CSV à partir de ce nouveau flux, y compris au format de l'ancien fichier.</p>
+
+<h3>Les données sont-elles à jour ?</h3>
+<p>Pour FINESS+, oui : chaque exécution télécharge le flux du jour, et le fichier <code>structures-resume.json</code> indique la date exacte des données. Pour la CCAM, la page de téléchargement de l'Assurance Maladie est lue à chaque exécution. Pour la CIM-10 et les tarifs GHS, l'outil connaît les éditions publiées à la date de sa version, aujourd'hui la CIM-10 FR 2025 et les tarifs 2026.</p>
+
+<h3>Puis-je réutiliser les fichiers produits ?</h3>
+<p>FINESS+ et la base publique des médicaments sont publiés sous Licence Ouverte : la réutilisation est libre, en citant la source et la date. Les autres référentiels ont leurs propres conditions, détaillées dans la <a href="https://github.com/QuentinCazier/referentiels-sante/blob/main/docs/SOURCES.md">page des sources et licences</a>. L'outil ne redistribue aucune donnée : il la télécharge à la source au moment où vous le lancez.</p>
+
+<h3>Faut-il des droits d'administrateur ?</h3>
+<p>Pour installer Node.js sur Windows, en général oui. Une fois Node.js présent, l'outil lui-même ne demande aucun droit particulier et n'installe aucune autre dépendance.</p>
+
+<h3>Combien de temps et de mémoire faut-il ?</h3>
+<p>Mesures sur un poste de travail :</p>
+<div class="tableau">
+<table>
+  <thead><tr><th>Traitement</th><th>Durée</th><th>Mémoire au pic</th></tr></thead>
+  <tbody>
+    <tr><td>FINESS+ structures, conversion complète (751 Mo de JSON décompressé)</td><td class="nombre">16 s</td><td class="nombre">231 Mo</td></tr>
+    <tr><td>FINESS+ activités (294 753 activités autorisées, 294 774 exercées)</td><td class="nombre">21 s</td><td class="nombre">209 Mo</td></tr>
+    <tr><td>CCAM V84 (8 558 actes, 967 106 prix par grille tarifaire)</td><td class="nombre">14 s</td><td class="nombre">429 Mo</td></tr>
+    <tr><td>CIM-10 FR 2025 (11 969 codes)</td><td class="nombre">moins d'une seconde</td><td class="nombre">233 Mo</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>Et si une source change de format ?</h3>
+<p>Les sources sont des pages web, pas des interfaces stables. Une vérification automatique tourne chaque semaine : elle contrôle que chaque page et chaque fichier répondent encore, et ouvre un ticket sur le dépôt en cas de problème. Vous pouvez la lancer vous-même avec <code>npx referentiels-sante verifier</code>.</p>
+
+<h2 id="developpeurs">Pour les développeurs</h2>
+
+<p>Le paquet s'utilise aussi comme bibliothèque Node.js. Il expose les convertisseurs et un lecteur JSON en flux qui parcourt les 751 Mo de FINESS+ objet par objet, sans charger le fichier en mémoire.</p>
+
+<pre><code>import { finess, nos, lireCollection } from 'referentiels-sante';
+
+for await (const entite of lireCollection('finess-structures.json.gz', 'pmej')) {
+  console.log(entite.informationsGeneralesPMEJ.numFinessPm, entite.ege.length);
+}
+
+const categories = await nos.chargerTable('TRE_R66-CategorieEtablissement');
+nos.indexLibelles(categories).get('355'); // 'Centre hospitalier (CH)'</code></pre>
+
+<p>Code sous licence MIT, 46 tests, testé sur Linux et Windows avec Node.js 22, 24 et 26. Les signalements d'écarts, les référentiels manquants et les contributions sont bienvenus sur <a href="https://github.com/QuentinCazier/referentiels-sante">GitHub</a>.</p>
+
+</main>
+
+<footer>
+  <div class="col">
+    <p>Écrit et maintenu par <a href="https://github.com/QuentinCazier">Quentin Cazier</a>. Code sous licence MIT. Les données produites restent la propriété de leurs producteurs et sont soumises à leurs licences ; la source et la date d'extraction sont inscrites dans chaque fichier <code>*-resume.json</code>.</p>
+    <p>Du même auteur : <a href="https://quentincazier.github.io/guide-sih/">Le SIH pour les développeurs</a>, un guide du système d'information hospitalier, et <a href="https://github.com/QuentinCazier/Registris">Registris</a>, un registre des habilitations pour les établissements de santé.</p>
+  </div>
+</footer>
+
+</body>
+</html>
