@@ -6,7 +6,7 @@
  * Les flux FINESS+ font 750 Mo une fois décompressés : JSON.parse est
  * impossible (limite de taille des chaînes V8). On suit donc les accolades et
  * crochets caractère par caractère, et l'on ne parse individuellement que les
- * éléments des tableaux de premier niveau (quelques Ko chacun).
+ * éléments des tableaux de premier niveau (5 Ko en moyenne, 2 Mo pour le plus gros).
  *
  * Le lecteur émet :
  *   { type: 'meta', cle, valeur }              pour les scalaires de premier niveau
