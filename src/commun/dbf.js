@@ -17,14 +17,27 @@ import { dateIso } from './dates.js';
 // Moitié haute de la page de code 850 (0x80 à 0xFF).
 const CP850_HAUT = 'ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒáíóúñÑªº¿®¬½¼¡«»░▒▓│┤ÁÂÀ©╣║╗╝¢¥┐└┴┬├─┼ãÃ╚╔╩╦╠═╬¤ðÐÊËÈıÍÎÏ┘┌█▄¦Ì▀ÓßÔÒõÕµþÞÚÛÙýÝ¯´­±‗¾¶§÷¸°¨·¹³²■ ';
 
-/** Décode un Buffer CP850 en chaîne. */
+// Table octet vers unité de code UTF-16, construite une fois.
+const CP850 = new Uint16Array(256);
+for (let i = 0; i < 256; i++) CP850[i] = i < 0x80 ? i : CP850_HAUT.charCodeAt(i - 0x80);
+
+/**
+ * Décode un Buffer CP850 en chaîne.
+ *
+ * Construire le texte caractère par caractère (`s += c`) produit dans V8 une
+ * chaîne faite de fragments chaînés, qui occupe plus de vingt fois la place
+ * d'une chaîne compacte tant qu'elle reste en mémoire : sur la CCAM, près de
+ * 3 Go. On remplit donc un tableau d'unités de code, décodé d'un seul coup.
+ */
 export function decoderCp850(tampon) {
-  let s = '';
+  let ascii = true;
   for (let i = 0; i < tampon.length; i++) {
-    const b = tampon[i];
-    s += b < 0x80 ? String.fromCharCode(b) : CP850_HAUT[b - 0x80];
+    if (tampon[i] >= 0x80) { ascii = false; break; }
   }
-  return s;
+  if (ascii) return tampon.toString('latin1');
+  const unites = new Uint16Array(tampon.length);
+  for (let i = 0; i < tampon.length; i++) unites[i] = CP850[tampon[i]];
+  return Buffer.from(unites.buffer, unites.byteOffset, unites.byteLength).toString('utf16le');
 }
 
 const DECODEURS = {

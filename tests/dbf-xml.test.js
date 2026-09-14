@@ -22,6 +22,20 @@ test('decoderCp850 restitue les accents de la page de code DOS', () => {
   assert.equal(decoderCp850(Buffer.from([0x85, 0x87, 0x88, 0x93, 0x96])), 'àçêôû');
 });
 
+test('decoderCp850 décode les 128 caractères hauts et garde le texte ASCII tel quel', () => {
+  const hauts = decoderCp850(Buffer.from(Array.from({ length: 128 }, (_, i) => 0x80 + i)));
+  assert.equal(hauts.length, 128, 'un caractère par octet');
+  assert.equal(hauts[0x82 - 0x80], 'é');
+  assert.equal(hauts[0x85 - 0x80], 'à');
+  assert.equal(hauts[0x87 - 0x80], 'ç');
+  assert.equal(hauts[0xf8 - 0x80], '°');
+  assert.equal(hauts[0xf0 - 0x80], '­', 'trait d’union conditionnel');
+  assert.equal(hauts[0xff - 0x80], ' ', 'espace insécable');
+  const ascii = Buffer.from('ZBQK002 Radiographie du thorax'.padEnd(254, ' '), 'latin1');
+  assert.equal(decoderCp850(ascii), ascii.toString('latin1'));
+  assert.equal(decoderCp850(Buffer.alloc(0)), '');
+});
+
 test('lireDbf lit en-tête, types et ignore les enregistrements supprimés', async () => {
   const dossier = dossierTemp();
   const chemin = join(dossier, 'test.dbf');

@@ -1,7 +1,7 @@
 # CCAM : correspondance des colonnes
 
 La CCAM (classification commune des actes médicaux) est publiée par
-l'Assurance Maladie sous forme d'une base dBase d'une cinquantaine de tables,
+l'Assurance Maladie sous forme d'une base dBase de 72 tables (version 84),
 en page de code DOS (CP850), historisée : chaque acte, activité ou phase
 apparaît une fois par date de modification. La documentation officielle est le
 « Guide d'utilisation des fichiers DBF » téléchargeable avec les archives.

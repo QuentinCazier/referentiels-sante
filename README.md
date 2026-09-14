@@ -104,15 +104,15 @@ console.log(nos.indexLibelles(categories).get('355')); // Centre hospitalier (CH
 const tarifs = ghs.convertirArchive('ghs_web_20260101.zip');
 ```
 
-Mesures sur un portable, flux du 14 septembre 2026 pour les structures et du 11 septembre pour les activités. La mémoire indiquée est le pic de mémoire du processus :
+Mesures sur un poste de travail, flux du 14 septembre 2026 pour les structures, du 11 septembre pour les activités, CCAM V84 et CIM-10 FR 2025. La mémoire indiquée est le pic de mémoire du processus :
 
 | Traitement | Contenu | Durée | Mémoire au pic |
 |---|---|---|---|
 | lecture seule du flux structures (50 Mo compressés, 751 Mo décompressés) | 98 221 entités juridiques, 174 714 établissements | 8 s | 104 Mo |
 | conversion complète des structures, libellés et format historique compris | idem, plus 135 GHT et 1 858 groupements de coopération | 16 s | 231 Mo |
 | conversion complète des activités (58 Mo compressés) | 294 753 activités autorisées, 294 774 activités exercées | 21 s | 209 Mo |
-| CCAM V84 (27 Mo compressés, 700 Mo de tables dBase) | 8 558 actes, 13 741 activités, 967 106 prix par grille, 44 925 notes | 27 s | quelques centaines de Mo |
-| CIM-10 FR 2025 (ClaML) | 11 969 codes | moins d'une seconde | |
+| CCAM V84 (27 Mo compressés, 72 tables dBase) | 8 558 actes, 13 741 activités, 967 106 prix par grille, 44 925 notes | 14 s | 429 Mo |
+| CIM-10 FR 2025 (ClaML) | 11 969 codes | moins d'une seconde | 233 Mo |
 
 ## Ce que l'outil ne fait pas
 

@@ -1,6 +1,6 @@
 /**
  * CCAM (classification commune des actes médicaux) depuis les fichiers DBF
- * publiés par l'Assurance Maladie. La base compte une cinquantaine de tables ;
+ * publiés par l'Assurance Maladie. La base compte 72 tables (version 84) ;
  * les principales sont :
  *
  *   R_ACTE               un acte par version (code sur 7 caractères, libellés, dates)
